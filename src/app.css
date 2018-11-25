@@ -1,0 +1,33 @@
+.purp {
+  color: #000000;
+}
+
+.show-mobile {
+  display: none;
+  visibility: hidden;
+}
+
+.one-pager {
+  width: 20%;
+  align-self: center;
+}
+
+.blue:hover {
+  color: #0044ff;
+  /* color: #23AF23; */
+}
+
+@media (max-width: 450px) {
+  .hide-mobile {
+    display: none;
+    visibility: hidden;
+  }
+  .show-mobile {
+    display: block;
+    visibility: visible;
+  }
+  .one-pager {
+    width: 40%;
+    align-self: flex-start;
+  }
+}
