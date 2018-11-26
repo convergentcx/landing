@@ -9,6 +9,11 @@ import {
   CardActions,
   CardContent,
   CardMedia,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
   Grid,
   IconButton,
   Menu,
@@ -29,8 +34,10 @@ import { faDiscord, faGithub, faMediumM, faTwitter } from '@fortawesome/free-bra
 import { faBars, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 import Logo from './logo3.png';
-import Reptile from './contemplative-reptile.jpg';
-import ethereum from './ethereum.png';
+import LoganPhoto from './logan_16x9.JPG';
+import AchillPhoto from './achill_16x9.jpg';
+// import Reptile from './contemplative-reptile.jpg';
+// import ethereum from './ethereum.png';
 import './app.css'
 
 const track = (category, action) => ReactGA.event({ category, action });
@@ -51,9 +58,40 @@ const printConvergentToConsole = () => {
 const notification = () => {
   toast(<div>Billboard now live at <a style={{ color: '#0044FF', textDecoration: 'none' }} href="https://billboard.convergent.cx" target="_blank" rel="noopener noreferrer">billboard.convergent.cx</a></div>, { 
     className: 'purp',
-    position: toast.POSITION.BOTTOM_RIGHT
+    position: toast.POSITION.BOTTOM_LEFT,
   });
 };
+
+const Achill = {
+  bio: 'Achill is amazed by life and the universe. He studied economics in combination with philosophy and loves making documentary films. After discovering that one can solve big problems for a living, he dropped out of a PhD program at Yale and decided to pursue his entrepreneurial mission: To enable more valuable communication between strangers. He started coding, leading teams and learning about technology - and never stopped. He is an active contributor to the global blockchain ecosystem and has not felt more at home in any other community ❤️',
+  name: 'Achill Rudolph',
+  picture: AchillPhoto,
+  socials: {
+    email: 'achill@convergent.cx',
+    github: 'https://github.com/acrdlph',
+    medium: 'https://medium.com/@w.a.y',
+    twitter: 'https://twitter.com/AchillRudolph',
+    website: 'http://www.achillrudolph.com/',
+  }
+}
+
+const Logan = {
+  bio: 'Logan is an entrepreneur, smart contract engineer, and decentralization activist. While a student of literature and complex systems at university, he discovered Ethereum while surfing online. He immediately found the emerging field of public blockchain technology to be the vortex of his varied interests. Realizing the potential for a high impact of change, he phased out his involvement with everything else and committed his time to studying cryptoeconomics and building DApps. After a brief stint with a startup in New York, he joined the ChronoLogic team and helped to reboot the Ethereum Alarm Clock project while travelling Europe. Now based in Berlin, he is one of the initiators of Convergent, a project which aims to realize the vision of unanimous personal economies. One day he will go to space ⚛🚀️',
+  name: 'Logan Saether',
+  picture: LoganPhoto,
+  socials: {
+    email: 'logan@convergent.cx',
+    github: 'https://github.com/lsaether',
+    medium: 'https://medium.com/@lsaether',
+    twitter: 'https://twitter.com/7saether',
+    website: 'https://logansaether.com',
+  }
+}
+
+const team = {
+  'achill': Achill,
+  'logan': Logan,
+}
 
 class TopNavbar extends Component {
   constructor(props) {
@@ -128,12 +166,23 @@ class TopNavbar extends Component {
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      open: false,
+      who: '',
+    };
+  }
+
   componentDidMount() {
     printConvergentToConsole();
     notification();
   }
 
   render() {
+    const subject = team[this.state.who] || { bio: '', name: '', socials: { twitter: '', medium: '', github: ''}};
+
     return (
       <div style={{margin: 0, padding: 0, minWidth: "100%", minHeight: "100vh"}} onClick={e => {
         const category = e.target.innerText;
@@ -179,7 +228,7 @@ class App extends Component {
 
         {/* TODO */}
 
-        <Grid container style={{ backgroundColor: '#232323', minHeight: '50vh' }}>
+        <Grid container style={{ backgroundColor: '#232323', minHeight: '50vh', paddingBottom: '5vh' }}>
           <Grid item xs={0} md={3} />
           <Grid item xs={12} md={6} style={{ textAlign: 'center', color: '#FFFFFF' }}>
             <h1 style={{ fontSize: '3em' }}>The Team</h1>
@@ -187,38 +236,11 @@ class App extends Component {
           <Grid item xs={0} md={3} />
 
           <Grid item xs={0} md={3} />
-          <Grid item xs={12} md={3}>
-            <Card style={{ margin: '12px' }}>
-              <CardActionArea>
-                {/* <CardMedia image={Reptile} style={{ height: '140px' }} /> */}
-                <CardContent>
-                  <Typography variant="h5" component="h2">
-                    Logan Saether
-                  </Typography>
-                  <Typography variant="subtitle" component="h4">
-                    Initiator and Lead Link
-                  </Typography>
-                  {/* <Typography component="p">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                    across all continents except Antarctica
-                  </Typography> */}
-                </CardContent>
-              </CardActionArea>
-              <CardActions style={{ justifyContent: 'flex-end' }}>
-                <Button size="small" style={{ color: '#0044FF' }}>
-                  Bio
-                </Button>
-                <Button size="small" style={{ color: '#0044FF' }} onClick={() => alert('Coming soon!')}>
-                  Economy
-                </Button>
-              </CardActions>
-            </Card>
-          </Grid>
 
           <Grid item xs={12} md={3}>
             <Card style={{ margin: '12px' }}>
               <CardActionArea>
-                {/* <CardMedia image={Reptile} style={{ height: '140px' }} /> */}
+                <CardMedia alt="Achill" image={Achill.picture} style={{ height: '0', paddingTop: '56.25%' }} />
                 <CardContent>
                   <Typography variant="h5" component="h2">
                     Achill Rudolph
@@ -233,17 +255,63 @@ class App extends Component {
                 </CardContent>
               </CardActionArea>
               <CardActions style={{ justifyContent: 'flex-end' }}>
-                <Button size="small" style={{ color: '#0044FF' }}>
+                <Button size="medium" style={{ color: '#0044FF' }} onClick={() => this.setState({ open: true, who: 'achill' })}>
                   Bio
                 </Button>
-                <Button size="small" style={{ color: '#0044FF' }} onClick={() => alert('Coming soon!')}>
+                <Button size="medium" style={{ color: '#0044FF' }} onClick={() => alert('Coming soon!')}>
                   Economy
                 </Button>
               </CardActions>
             </Card>
           </Grid>
+          
+          <Grid item xs={12} md={3}>
+            <Card style={{ margin: '12px' }}>
+              <CardActionArea>
+                <CardMedia alt="Logan" image={Logan.picture} style={{ height: '0', paddingTop: '56.25%' }} />
+                <CardContent>
+                  <Typography variant="h5" component="h2">
+                    Logan Saether
+                  </Typography>
+                  <Typography variant="subtitle" component="h4">
+                    Initiator and Lead Link
+                  </Typography>
+                  {/* <Typography component="p">
+                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+                    across all continents except Antarctica
+                  </Typography> */}
+                </CardContent>
+              </CardActionArea>
+              <CardActions style={{ justifyContent: 'flex-end' }}>
+                <Button size="medium" style={{ color: '#0044FF' }} onClick={() => this.setState({ open: true, who: 'logan' })}>
+                  Bio
+                </Button>
+                <Button size="medium" style={{ color: '#0044FF' }} onClick={() => alert('Coming soon!')}>
+                  Economy
+                </Button>
+              </CardActions>
+            </Card>
+          </Grid>
+
           <Grid item xs={0} md={3} />
         </Grid>
+
+        {/* Dialog */}
+        <Dialog onClose={() => this.setState({ open: false })} open={this.state.open}>
+          <DialogTitle elevation={6} id="alert-dialog-title" style={{ backgroundColor: '' }}>
+            {subject.name}
+          </DialogTitle>
+          <DialogContent style={{ padding: '' }}>
+            <DialogContentText>
+              {subject.bio}
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <FontAwesomeIcon className="blue" icon={faTwitter} onClick={() => window.open(subject.socials.twitter)} size='md' style={{ padding: '5px' }} />
+            <FontAwesomeIcon className="blue" icon={faMediumM} onClick={() => window.open(subject.socials.medium)} size='md' style={{ padding: '5px' }} />
+            <FontAwesomeIcon className="blue" icon={faGithub} onClick={() => window.open(subject.socials.github)} size='md' style={{ padding: '5px' }} />
+          </DialogActions>
+        </Dialog>
 
         {/* Footer */}
         <Grid container style={{ bottom: 0, backgroundColor: '#232323' }}>
