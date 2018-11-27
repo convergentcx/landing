@@ -177,7 +177,7 @@ class App extends Component {
 
   componentDidMount() {
     printConvergentToConsole();
-    notification();
+    // notification();
   }
 
   render() {
@@ -199,13 +199,13 @@ class App extends Component {
         {/* Hero */}
         <Grid container style={{ paddingTop: '5vh', backgroundColor: '#232323', paddingBottom: '5vh' }}>
           <Grid item xs={12} md={6} style={{ textAlign: 'center', color: '#FFFFFF', minHeight: '50vh', marginBottom: '50px' }}>
-            <h1 style={{ fontSize: '3em' }}>Unlock your personal economy.</h1>
+            <h1 style={{ fontSize: '3em', textShadow: '-3px -3px #0044FF, -2px -2px #0044FF, -1px -1px #0044FF, -2.5px -2.5px #0044FF, -1.5px -1.5px #0044FF, -0.5px -0.5px #0044FF' }}>Unlock your personal economy.</h1>
             <br /><br /><br />
             <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-              <Button size="large" variant="outlined" style={{ color: '#FFFFFF', borderColor: '#0044FF' }} onClick={() => window.open('https://ipfs.io/ipfs/QmYDfuvC5yDLSRJWcZNfVnSMLSBgPkaKoWjgEYKjwXZrA3')}>Learn More</Button>
-              <Tooltip title="Not yet available">
+              <Button size="large" variant="extendedFab" style={{ color: '#FFFFFF', background: '#0044FF' }} onClick={() => window.open('https://ipfs.io/ipfs/QmYDfuvC5yDLSRJWcZNfVnSMLSBgPkaKoWjgEYKjwXZrA3')}>Learn More</Button>
+              <Tooltip title="Not yet available" placement="top">
                 <div>
-                <Button size="large" variant="outlined" disabled style={{ color: '' }}>Try the product</Button>
+                <Button size="large" variant="extendedFab" style={{ color: '#606060', background: '#303030', cursor: 'default' }}>Try the product</Button>
                 </div>
               </Tooltip>
             </div>
@@ -213,17 +213,29 @@ class App extends Component {
           <Grid item xs={12} md={6}>
             <Paper style={{ margin: '25px', height: '54vh', textAlign: 'center', paddingTop: '30px' }}>
               {/* <h2 style={{ paddingTop: '25px' }}>Launch your own cryptocurrency and regain your freedom.</h2> */}
-              <YoutubeEmbedVideo videoId="BXLjMA-BZYA" suggestions={false} showInfo={false} style={{ width: '80%', height: '90%' }} />
+              <YoutubeEmbedVideo
+                videoId="BXLjMA-BZYA"
+                showInfo={false}
+                suggestions={false}
+                style={{ width: '80%', height: '90%' }}
+              />
             </Paper>
           </Grid>
         </Grid>
 
-        <Grid container style={{ backgroundColor: '#0044FF', minHeight: '50vh' }}>
+        <Grid container style={{ backgroundColor: '#0044FF', minHeight: '50vh', paddingBottom: '5vh' }}>
           <Grid item xs={0} md={4} />
           <Grid item xs={12} md={6} style={{ textAlign: 'center', color: '#FFFFFF' }}>
-            <h1 style={{ fontSize: '3em' }}>Get rewarded for discovering trending tokens before they blow up.</h1>
+            <h1 style={{ fontSize: '3em', textShadow: '3px -3px #232323, 2px -2px #232323, 1px -1px #232323, 2.5px -2.5px #232323, 1.5px -1.5px #232323, 0.5px -0.5px #232323' }}>Get rewarded for discovering trending tokens before they blow up.</h1>
           </Grid>
           <Grid item xs={0} md={2} />
+          <Grid item xs={0} md={3} />
+          <Grid item xs={12} md={2} style={{ display: 'flex', justifyContent: 'center', paddingTop: '2.5vh' }}>
+            <Button size="large" variant="extendedFab" style={{ color: '#FFFFFF', background: '#232323' }} onClick={() => window.open('https://convergent2.typeform.com/to/am2euV')}>
+              EARLY ACCESS
+            </Button>
+          </Grid>
+          <Grid item xs={0} md={7} />
         </Grid>
 
         {/* TODO */}
@@ -231,7 +243,7 @@ class App extends Component {
         <Grid container style={{ backgroundColor: '#232323', minHeight: '50vh', paddingBottom: '5vh' }}>
           <Grid item xs={0} md={3} />
           <Grid item xs={12} md={6} style={{ textAlign: 'center', color: '#FFFFFF' }}>
-            <h1 style={{ fontSize: '3em' }}>The Team</h1>
+            <h1 style={{ fontSize: '3em', textShadow: '-3px -3px #0044FF, -2px -2px #0044FF, -1px -1px #0044FF, -2.5px -2.5px #0044FF, -1.5px -1.5px #0044FF, -0.5px -0.5px #0044FF' }}>The Team</h1>
           </Grid>
           <Grid item xs={0} md={3} />
 
@@ -314,17 +326,20 @@ class App extends Component {
         </Dialog>
 
         {/* Footer */}
-        <Grid container style={{ bottom: 0, backgroundColor: '#232323' }}>
+        <Grid container style={{ bottom: 0, backgroundColor: '#FFFFFF' }}>
           <Grid item xs={12}>
             <Paper position="static" square elevation={12} style={{ backgroundColor: '#000000', height: '24vh'}}>
-              {/* <Grid container>
-                  <Grid item xs={0} md={6} />
-                  <Grid item xs={12} md={3} style={{ flexDirection: 'column' }}>
-                    <h5 style={{ color: '#828384', textAlign: 'center' }}>Built on:</h5>
-                    <img src={ethereum} alt="ethereum" style={{ height: '100px', display: 'block', margin: '-20px auto' }} />
-                  </Grid>
-                  <Grid item xs={0} md={3} />
-              </Grid> */}
+              <Grid container>
+                {/* <Grid item xs={0} md={2} />
+                <Grid item xs={12} md={8} style={{ color: '#FFFFFF', height: '24vh', padding: '0.5%', background: '', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end' }}>
+                  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">
+                    <img alt="Creative Commons License" style={{ borderWidth: 0 }} src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+                  </a>
+                <br />
+                This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
+                </Grid>
+                <Grid item xs={0} md={2} /> */}
+              </Grid>
             </Paper>
           </Grid>
         </Grid>
