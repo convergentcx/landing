@@ -229,13 +229,13 @@ class App extends Component {
             <h1 style={{ fontSize: '3em', textShadow: '3px -3px #232323, 2px -2px #232323, 1px -1px #232323, 2.5px -2.5px #232323, 1.5px -1.5px #232323, 0.5px -0.5px #232323' }}>Get rewarded for discovering trending tokens before they blow up.</h1>
           </Grid>
           <Grid item xs={0} md={2} />
-          <Grid item xs={0} md={3} />
-          <Grid item xs={12} md={2} style={{ display: 'flex', justifyContent: 'center', paddingTop: '2.5vh' }}>
+          <Grid item xs={0} md={4} />
+          <Grid item xs={12} md={6} style={{ display: 'flex', justifyContent: 'center', paddingTop: '2.5vh' }}>
             <Button size="large" variant="extendedFab" style={{ color: '#FFFFFF', background: '#232323' }} onClick={() => window.open('https://convergent2.typeform.com/to/am2euV')}>
               EARLY ACCESS
             </Button>
           </Grid>
-          <Grid item xs={0} md={7} />
+          <Grid item xs={0} md={2} />
         </Grid>
 
         {/* TODO */}
