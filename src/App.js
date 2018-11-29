@@ -177,7 +177,7 @@ class App extends Component {
 
   componentDidMount() {
     printConvergentToConsole();
-    // notification();
+    notification();
   }
 
   render() {
