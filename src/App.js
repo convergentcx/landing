@@ -57,7 +57,7 @@ const printConvergentToConsole = () => {
 };
 
 const notification = () => {
-  toast(<div>Billboard now live at <a style={{ color: '#0044FF', textDecoration: 'none' }} href="https://billboard.convergent.cx" target="_blank" rel="noopener noreferrer">billboard.convergent.cx</a></div>, { 
+  toast(<div>Billboard now live at <a style={{ color: '#0044FF', textDecoration: 'none' }} href="https://billboard.convergent.cx" target="_blank" rel="noopener noreferrer">billboard.convergent.cx</a></div>, {
     className: 'purp',
     position: toast.POSITION.BOTTOM_LEFT,
   });
@@ -121,7 +121,7 @@ class TopNavbar extends Component {
           <Typography variant="h5" color="inherit" noWrap>
             Convergent
           </Typography>
-          <div style={{ flexGrow: 1}} />
+          <div style={{ flexGrow: 1 }} />
           <div className="hide-mobile">
             <Button className="blue" href="https://twitter.com/ConvergentCx" target="_blank" rel="noopener noreferrer">
               <FontAwesomeIcon icon={faTwitter} size='2x' />
@@ -182,22 +182,22 @@ class App extends Component {
   }
 
   openPopup = () => {
-    const popup1 = typeformEmbed.makePopup('https://convergent2.typeform.com/to/am2euV', {mode: 'popup'});
+    const popup1 = typeformEmbed.makePopup('https://convergent2.typeform.com/to/am2euV', { mode: 'popup' });
     popup1.open();
   }
 
 
   render() {
-    const subject = team[this.state.who] || { bio: '', name: '', socials: { twitter: '', medium: '', github: ''}};
+    const subject = team[this.state.who] || { bio: '', name: '', socials: { twitter: '', medium: '', github: '' } };
 
     return (
-      <div style={{margin: 0, padding: 0, minWidth: "100%", minHeight: "100vh"}} onClick={e => {
+      <div style={{ margin: 0, padding: 0, minWidth: "100%", minHeight: "100vh" }} onClick={e => {
         const category = e.target.innerText;
         try {
           if (category.length < 50) {
             track(category, 'click');
           }
-        } catch {}
+        } catch { }
       }}>
 
         {/* Top Navbar */}
@@ -210,11 +210,11 @@ class App extends Component {
             <br /><br /><br />
             <div style={{ display: 'flex', justifyContent: 'space-around' }}>
               <Button size="large" variant="extendedFab" style={{ color: '#FFFFFF', background: '#0044FF' }} onClick={() => window.open('https://ipfs.io/ipfs/QmYDfuvC5yDLSRJWcZNfVnSMLSBgPkaKoWjgEYKjwXZrA3')}>Learn More</Button>
-                <div>
+              <div>
                 <Button size="large" variant="extendedFab" style={{ color: '#FFFFFF', background: '#232323' }} onClick={this.openPopup}>
-              EARLY ACCESS
+                  EARLY ACCESS
             </Button>
-                </div>
+              </div>
             </div>
           </Grid>
           <Grid item xs={12} md={6}>
@@ -230,15 +230,45 @@ class App extends Component {
           </Grid>
         </Grid>
 
-        <Grid container style={{ backgroundColor: '#0044FF', minHeight: '50vh', paddingBottom: '5vh' }}>
+        <Grid container style={{ backgroundColor: '#0044FF', minHeight: '50vh', paddingBottom: '5vh', alignItems: 'center' }}>
           <Grid item xs={0} md={3} />
           <Grid item xs={12} md={6} style={{ textAlign: 'center', color: '#FFFFFF' }}>
             <h1 style={{ fontSize: '3em', textShadow: '3px -3px #232323, 2px -2px #232323, 1px -1px #232323, 2.5px -2.5px #232323, 1.5px -1.5px #232323, 0.5px -0.5px #232323' }}>Launch your own cryptocurrency and tokenize your life.</h1>
           </Grid>
-          <Grid item xs={12} md={12} style={{ textAlign: 'center', display: 'flex', justifyContent: 'center', paddingTop: '2.5vh' }}>
-          <Tooltip title="Not yet available" placement="top">
-          <Button size="large" variant="extendedFab" style={{ color: '#606060', background: '#303030', cursor: 'default' }}>Try the product</Button>
-          </Tooltip>
+          <Grid item xs={0} md={3} />
+        </Grid>
+
+
+
+        <Grid container style={{ alignItems: 'center', backgroundColor: '#232323', minHeight: '50vh', paddingBottom: '5vh' }}>
+          <Grid item xs={0} md={3} />
+          <Grid item xs={12} md={6} style={{ textAlign: 'center', color: '#FFFFFF' }}>
+            <h1 style={{ fontSize: '3em', textShadow: '-3px -3px #0044FF, -2px -2px #0044FF, -1px -1px #0044FF, -2.5px -2.5px #0044FF, -1.5px -1.5px #0044FF, -0.5px -0.5px #0044FF' }}>How it works</h1>
+          </Grid>
+          <Grid item xs={12} md={12} style={{ textAlign: 'center', display: 'flex', justifyContent: 'center', paddingTop: '2.5vh', fontSize: '1.1em', textShadow: '-1px -1px #0044FF, -0.5px -0.5px #0044FF, -0.25px -0.25px #0044FF, -0.75px -0.75px #0044FF, -0.2px -0.2px #0044FF, -0.1px -0.1px #0044FF', color: '#FFFFFF' }}>
+            <Grid item xs={12} md={4}>
+              <div style={{ height: '15rem', width: '15rem', borderRadius: '50%', backgroundColor: '#0044FF', margin: 'auto', display: 'table' }}>
+                <p style={{display: 'table-cell', verticalAlign: 'middle', padding: '20%'}}> Launch your token and decide what you will give in exchange for it.</p>
+              </div>
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <div style={{ height: '15rem', width: '15rem', borderRadius: '50%', backgroundColor: '#0044FF', margin: 'auto', display: 'table' }}>
+              <p style={{display: 'table-cell', verticalAlign: 'middle', padding: '20%'}}> Let the markets trade and figure out the value of your promise.</p>
+              </div>
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <div style={{ height: '15rem', width: '15rem', borderRadius: '50%', backgroundColor: '#0044FF', margin: 'auto', display: 'table'}}>
+              <p style={{display: 'table-cell', verticalAlign: 'middle', padding: '20%'}}> Honor your token to build trust, attract investors and raise capital.</p>
+              </div>
+            </Grid>
+
+          </Grid>
+
+
+          <Grid item xs={12} md={12} style={{ textAlign: 'center', display: 'flex', justifyContent: 'center', paddingTop: '10vh' }}>
+            <Tooltip title="Not yet available" placement="top">
+              <Button size="large" variant="extendedFab" style={{ color: '#606060', background: '#303030', cursor: 'default' }}>Try the product</Button>
+            </Tooltip>
           </Grid>
           <Grid item xs={0} md={3} />
         </Grid>
@@ -281,7 +311,7 @@ class App extends Component {
               </CardActions>
             </Card>
           </Grid>
-          
+
           <Grid item xs={12} md={3}>
             <Card style={{ margin: '12px' }}>
               <CardActionArea>
@@ -333,7 +363,7 @@ class App extends Component {
         {/* Footer */}
         <Grid container style={{ bottom: 0, backgroundColor: '#FFFFFF' }}>
           <Grid item xs={12}>
-            <Paper position="static" square elevation={12} style={{ backgroundColor: '#000000', height: '24vh'}}>
+            <Paper position="static" square elevation={12} style={{ backgroundColor: '#000000', height: '24vh' }}>
               <Grid container>
                 {/* <Grid item xs={0} md={2} />
                 <Grid item xs={12} md={8} style={{ color: '#FFFFFF', height: '24vh', padding: '0.5%', background: '', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end' }}>
