@@ -1,0 +1,22 @@
+dist: trusty
+sudo: required
+group: beta
+language: node_js
+node_js:
+- 10.5.0
+cache:
+  directories:
+  - node_modules
+install: yarn
+script:
+- yarn build
+before_deploy:
+- yarn build
+deploy:
+  skip_cleanup: true
+  provider: firebase
+  token:
+  - secure: 
+env:
+  global:
+    secure: BcbORZkVHZt2Y7yvx87Xo8fpCC22vB40DgP+aNZDQmebRSBdEaf2p+nelbOpVZEJuD+5lDE18mRsOwyqyUoQy19S+5Cb2gvNg+IqmaPIJZYVbNyMfjMOeSNX7o9IvyEQ2z8bWl7lufz17SOwgssZybSs6y9kU0l2haE/09hRgBfTK3NSFPwRx9RjJRW1R7XI4VzFoPblDwRx15VdY1uk79W1q2XrXf/g19p3amnuy7tLgm8K/r2DMeyeWeH4/7p1x7iDBjYts/VsLFPgdAb+04OsMLJI7W0E7kcO3bbOeJRY2l8x152KPFkA6nsRVWA26bI55cT8gorvEl1y6t3EsRB3EcVoJp1oXJa4APDCqzc57J6WabXIurM8v1xUYtp7OiOuW9zOr7UrzqyptyIwSFzjTjnI2QccSdrG3i7XG4vWWrfjwgrKtRA8UPb5pJhGS3/Pz9OcAY70OgpuRsPAPF0ug3IFBUp6x6ALpCw8CLFyAx0bD0ASCQOQWD03DljRDaa5hNEoXgdvXTvLD1TIJ8wIu4I3RCyIjWebFvSqEQoLqiG8GMkZW77IFoq0uxQG6b5dK959i2AK3I8TrdML23DaeP8mb1Sx3lpKw9UmAx5kG5rtA2xfW5yfb0xK2q/j5LeyiaUSHry+RVQ0aM11eeZVXPQbgvm6GjFIQKXMK6E=
