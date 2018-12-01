@@ -13,7 +13,7 @@
 }
 
 .blue:hover {
-  color: #0044ff;
+  color: #0044FF;
   cursor: pointer;
   /* color: #23AF23; */
 }
@@ -31,4 +31,16 @@
     width: 40%;
     align-self: flex-start;
   }
+}
+
+.circle {
+  height: 15em;
+  width: 15em;
+  border-radius: 50%;
+  background-color: #0044FF;
+  margin: auto;
+  display: table;
+  font-size: 16px;
+  box-shadow: -3px -3px #232323, -2px -2px #232323, -1px -1px #232323, -2.5px -2.5px #232323, -1.5px -1.5px #232323, -0.5px -0.5px #232323;
+  /* text-shadow: -2px -2px #AAAAAA, -1px -1px #AAAAAA, -1.5px -1.5px #AAAAAA, -0.5px -0.5px #AAAAAA; */
 }
