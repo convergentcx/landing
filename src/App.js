@@ -34,10 +34,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDiscord, faGithub, faMediumM, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faBars, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
-import Logo from './logo3.png';
+import Logo from './logo.png';
 import LoganPhoto from './logan_16x9.JPG';
 import AchillPhoto from './achill_16x9.jpg';
-// import Reptile from './contemplative-reptile.jpg';
 // import ethereum from './ethereum.png';
 import './app.css'
 
@@ -230,47 +229,58 @@ class App extends Component {
           </Grid>
         </Grid>
 
-        <Grid container style={{ backgroundColor: '#0044FF', minHeight: '50vh', paddingBottom: '5vh', alignItems: 'center' }}>
+        {/* Attention */}
+        <Grid container style={{ backgroundColor: '#0044FF', minHeight: '60vh', paddingBottom: '5vh', alignItems: 'center' }}>
           <Grid item xs={0} md={3} />
           <Grid item xs={12} md={6} style={{ textAlign: 'center', color: '#FFFFFF' }}>
-            <h1 style={{ fontSize: '3em', textShadow: '3px -3px #232323, 2px -2px #232323, 1px -1px #232323, 2.5px -2.5px #232323, 1.5px -1.5px #232323, 0.5px -0.5px #232323' }}>Launch your own cryptocurrency and tokenize your life.</h1>
+            <h1 style={{ fontSize: '3em', textShadow: '3px -3px #232323, 2px -2px #232323, 1px -1px #232323, 2.5px -2.5px #232323, 1.5px -1.5px #232323, 0.5px -0.5px #232323' }}>
+              Launch your own cryptocurrency and tokenize your life.
+            </h1>
           </Grid>
           <Grid item xs={0} md={3} />
         </Grid>
 
-
-
-        <Grid container style={{ alignItems: 'center', backgroundColor: '#232323', minHeight: '50vh', paddingBottom: '5vh' }}>
+        {/* About */}
+        <Grid container style={{ alignItems: 'center', backgroundColor: '#AAAAAA', minHeight: '50vh', paddingBottom: '5vh' }}>
           <Grid item xs={0} md={3} />
-          <Grid item xs={12} md={6} style={{ textAlign: 'center', color: '#FFFFFF' }}>
-            <h1 style={{ fontSize: '3em', textShadow: '-3px -3px #0044FF, -2px -2px #0044FF, -1px -1px #0044FF, -2.5px -2.5px #0044FF, -1.5px -1.5px #0044FF, -0.5px -0.5px #0044FF' }}>How it works</h1>
+          <Grid item xs={12} md={6} style={{ textAlign: 'center', color: '#FFFFFF', marginBottom: '2.5vh' }}>
+            <h1 style={{ fontSize: '3em', textShadow: '-3px -3px #232323, -2px -2px #232323, -1px -1px #232323, -2.5px -2.5px #232323, -1.5px -1.5px #232323, -0.5px -0.5px #232323' }}>
+              How it works
+            </h1>
           </Grid>
-          <Grid item xs={12} md={12} style={{ textAlign: 'center', display: 'flex', justifyContent: 'center', paddingTop: '2.5vh', fontSize: '1.1em', textShadow: '-1px -1px #0044FF, -0.5px -0.5px #0044FF, -0.25px -0.25px #0044FF, -0.75px -0.75px #0044FF, -0.2px -0.2px #0044FF, -0.1px -0.1px #0044FF', color: '#FFFFFF' }}>
-            <Grid item xs={12} md={4}>
-              <div style={{ height: '15rem', width: '15rem', borderRadius: '50%', backgroundColor: '#0044FF', margin: 'auto', display: 'table' }}>
-                <p style={{display: 'table-cell', verticalAlign: 'middle', padding: '20%'}}> Launch your token and decide what you will give in exchange for it.</p>
-              </div>
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <div style={{ height: '15rem', width: '15rem', borderRadius: '50%', backgroundColor: '#0044FF', margin: 'auto', display: 'table' }}>
-              <p style={{display: 'table-cell', verticalAlign: 'middle', padding: '20%'}}> Let the markets trade and figure out the value of your promise.</p>
-              </div>
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <div style={{ height: '15rem', width: '15rem', borderRadius: '50%', backgroundColor: '#0044FF', margin: 'auto', display: 'table'}}>
-              <p style={{display: 'table-cell', verticalAlign: 'middle', padding: '20%'}}> Honor your token to build trust, attract investors and raise capital.</p>
-              </div>
-            </Grid>
+          <Grid item xs={0} md={3} />
 
+          <Grid item xs={12} md={4} style={{ textAlign: 'center', color: '#FFFFFF', marginBottom: '5vh' }}>
+            <div className="circle">
+              <p style={{ display: 'table-cell', verticalAlign: 'middle', padding: '20%' }}>
+                Launch a token and decide what services you will exchange for it.
+              </p>
+            </div>
           </Grid>
 
+          <Grid item xs={12} md={4} style={{ textAlign: 'center', color: '#FFFFFF', marginBottom: '5vh' }}>
+            <div className="circle">
+              <p style={{display: 'table-cell', verticalAlign: 'middle', padding: '20%'}}>
+                The market trades your currency and determines the value of your promise.
+              </p>
+            </div>
+          </Grid>
 
-          <Grid item xs={12} md={12} style={{ textAlign: 'center', display: 'flex', justifyContent: 'center', paddingTop: '10vh' }}>
+          <Grid item xs={12} md={4} style={{ textAlign: 'center', color: '#FFFFFF', marginBottom: '5vh' }}>
+            <div className="circle">
+              <p style={{display: 'table-cell', verticalAlign: 'middle', padding: '20%'}}>
+                Honor your token to build trust, attract contributors and raise capital.
+              </p>
+            </div>
+          </Grid>
+
+          <Grid item xs={12} style={{ textAlign: 'center', display: 'flex', justifyContent: 'center', paddingTop: '5vh' }}>
             <Tooltip title="Not yet available" placement="top">
-              <Button size="large" variant="extendedFab" style={{ color: '#606060', background: '#303030', cursor: 'default' }}>Try the product</Button>
+              <Button size="large" variant="extendedFab" style={{ color: '#505050', background: '#303030', cursor: 'default' }}>
+                Try the product
+              </Button>
             </Tooltip>
           </Grid>
-          <Grid item xs={0} md={3} />
         </Grid>
 
         {/* TODO */}
@@ -295,10 +305,6 @@ class App extends Component {
                   <Typography variant="subtitle" component="h4">
                     Initiator and Lead Link
                   </Typography>
-                  {/* <Typography component="p">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                    across all continents except Antarctica
-                  </Typography> */}
                 </CardContent>
               </CardActionArea>
               <CardActions style={{ justifyContent: 'flex-end' }}>
@@ -323,10 +329,6 @@ class App extends Component {
                   <Typography variant="subtitle" component="h4">
                     Initiator and Lead Link
                   </Typography>
-                  {/* <Typography component="p">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                    across all continents except Antarctica
-                  </Typography> */}
                 </CardContent>
               </CardActionArea>
               <CardActions style={{ justifyContent: 'flex-end' }}>
