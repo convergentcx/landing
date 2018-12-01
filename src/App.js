@@ -248,17 +248,17 @@ class App extends Component {
           <Grid item xs={12} md={12} style={{ textAlign: 'center', display: 'flex', justifyContent: 'center', paddingTop: '2.5vh', fontSize: '1.1em', textShadow: '-1px -1px #0044FF, -0.5px -0.5px #0044FF, -0.25px -0.25px #0044FF, -0.75px -0.75px #0044FF, -0.2px -0.2px #0044FF, -0.1px -0.1px #0044FF', color: '#FFFFFF' }}>
             <Grid item xs={12} md={4}>
               <div style={{ height: '15rem', width: '15rem', borderRadius: '50%', backgroundColor: '#0044FF', margin: 'auto', display: 'table' }}>
-                <p style={{display: 'table-cell', verticalAlign: 'middle', padding: '20%'}}> Launch your token and decide what you will give in exchange for it.</p>
+                <p style={{ display: 'table-cell', verticalAlign: 'middle', padding: '20%' }}> Launch your token and decide what you will give in exchange for it.</p>
               </div>
             </Grid>
             <Grid item xs={12} md={4}>
               <div style={{ height: '15rem', width: '15rem', borderRadius: '50%', backgroundColor: '#0044FF', margin: 'auto', display: 'table' }}>
-              <p style={{display: 'table-cell', verticalAlign: 'middle', padding: '20%'}}> Let the markets trade and figure out the value of your promise.</p>
+                <p style={{ display: 'table-cell', verticalAlign: 'middle', padding: '20%' }}> Let the markets trade and figure out the value of your promise.</p>
               </div>
             </Grid>
             <Grid item xs={12} md={4}>
-              <div style={{ height: '15rem', width: '15rem', borderRadius: '50%', backgroundColor: '#0044FF', margin: 'auto', display: 'table'}}>
-              <p style={{display: 'table-cell', verticalAlign: 'middle', padding: '20%'}}> Honor your token to build trust, attract investors and raise capital.</p>
+              <div style={{ height: '15rem', width: '15rem', borderRadius: '50%', backgroundColor: '#0044FF', margin: 'auto', display: 'table' }}>
+                <p style={{ display: 'table-cell', verticalAlign: 'middle', padding: '20%' }}> Honor your token to build trust, attract investors and raise capital.</p>
               </div>
             </Grid>
 
@@ -361,10 +361,28 @@ class App extends Component {
         </Dialog>
 
         {/* Footer */}
-        <Grid container style={{ bottom: 0, backgroundColor: '#FFFFFF' }}>
+        <Grid container style={{ bottom: 0, backgroundColor: '#FFFFFF'}}>
           <Grid item xs={12}>
-            <Paper position="static" square elevation={12} style={{ backgroundColor: '#000000', height: '24vh' }}>
-              <Grid container>
+            <Paper position="static" square elevation={12} style={{ backgroundColor: '#000000', height: '24vh', display: 'flex', alignItems: 'center' }}>
+              <Grid container style={{ paddingLeft: '2%', paddingRight: '2%', color: 'white' }}>
+
+                <Grid item xs={12} md={12} style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                  <Button className="blue" href="https://twitter.com/ConvergentCx" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faTwitter} style={{color:"#ffffff"}} size='2x' />
+                  </Button>
+                  <Button className="blue" href="https://medium.com/convergentcx" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faMediumM} style={{color:"#ffffff"}} size='2x' />
+                  </Button>
+                  <Button className="blue" href="https://github.com/convergentcx" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faGithub} style={{color:"#ffffff"}} size='2x' />
+                  </Button>
+                  <Button className="blue" href="https://discord.gg/JUPx5Xg" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faDiscord} style={{color:"#ffffff"}} size='2x' />
+                  </Button>
+                  <Button className="blue" href="mailto:logan@convergent.cx" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faEnvelope} style={{color:"#ffffff"}} size='2x' />
+                  </Button>
+                </Grid>
                 {/* <Grid item xs={0} md={2} />
                 <Grid item xs={12} md={8} style={{ color: '#FFFFFF', height: '24vh', padding: '0.5%', background: '', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end' }}>
                   <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">
