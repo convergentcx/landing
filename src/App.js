@@ -207,7 +207,7 @@ class App extends Component {
           <Grid item xs={12} md={6} style={{ textAlign: 'center', color: '#FFFFFF', minHeight: '50vh', marginBottom: '50px' }}>
             <h1 style={{ fontSize: '3em', textShadow: '-3px -3px #0044FF, -2px -2px #0044FF, -1px -1px #0044FF, -2.5px -2.5px #0044FF, -1.5px -1.5px #0044FF, -0.5px -0.5px #0044FF' }}>Unlock your personal economy.</h1>
             <br /><br /><br />
-            <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '7vh' }}>
               <Button size="large" variant="extendedFab" style={{ color: '#FFFFFF', background: '#0044FF' }} onClick={() => window.open('https://ipfs.io/ipfs/QmYDfuvC5yDLSRJWcZNfVnSMLSBgPkaKoWjgEYKjwXZrA3')}>Learn More</Button>
               <div>
                 <Button size="large" variant="extendedFab" style={{ color: '#FFFFFF', background: '#232323' }} onClick={this.openPopup}>
@@ -288,7 +288,7 @@ class App extends Component {
         <Grid container style={{ backgroundColor: '#232323', minHeight: '50vh', paddingBottom: '5vh' }}>
           <Grid item xs={0} md={3} />
           <Grid item xs={12} md={6} style={{ textAlign: 'center', color: '#FFFFFF' }}>
-            <h1 style={{ fontSize: '3em', textShadow: '-3px -3px #0044FF, -2px -2px #0044FF, -1px -1px #0044FF, -2.5px -2.5px #0044FF, -1.5px -1.5px #0044FF, -0.5px -0.5px #0044FF' }}>The Team</h1>
+            <h1 style={{ fontSize: '3em', textShadow: '3px -3px #0044FF, 2px -2px #0044FF, 1px -1px #0044FF, 2.5px -2.5px #0044FF, 1.5px -1.5px #0044FF, 0.5px -0.5px #0044FF' }}>The Team</h1>
           </Grid>
           <Grid item xs={0} md={3} />
 
@@ -366,23 +366,23 @@ class App extends Component {
         <Grid container style={{ bottom: 0, backgroundColor: '#FFFFFF'}}>
           <Grid item xs={12}>
             <Paper position="static" square elevation={12} style={{ backgroundColor: '#000000', height: '24vh', display: 'flex', alignItems: 'center' }}>
-              <Grid container style={{ paddingLeft: '2%', paddingRight: '2%', color: 'white' }}>
+              <Grid container style={{ paddingLeft: '2%', paddingRight: '2%' }}>
 
-                <Grid item xs={12} md={12} style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-                  <Button className="blue" href="https://twitter.com/ConvergentCx" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faTwitter} style={{color:"#ffffff"}} size='2x' />
+                <Grid item xs={12} md={12} style={{display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <Button className="blueAlt" href="https://twitter.com/ConvergentCx" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon className="blueAlt" icon={faTwitter} size='2x' />
                   </Button>
-                  <Button className="blue" href="https://medium.com/convergentcx" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faMediumM} style={{color:"#ffffff"}} size='2x' />
+                  <Button className="blueAlt" href="https://medium.com/convergentcx" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon className="blueAlt" icon={faMediumM} size='2x' />
                   </Button>
-                  <Button className="blue" href="https://github.com/convergentcx" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faGithub} style={{color:"#ffffff"}} size='2x' />
+                  <Button className="blueAlt" href="https://github.com/convergentcx" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon className="blueAlt" icon={faGithub} size='2x' />
                   </Button>
-                  <Button className="blue" href="https://discord.gg/JUPx5Xg" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faDiscord} style={{color:"#ffffff"}} size='2x' />
+                  <Button className="blueAlt" href="https://discord.gg/JUPx5Xg" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon className="blueAlt" icon={faDiscord} size='2x' />
                   </Button>
-                  <Button className="blue" href="mailto:logan@convergent.cx" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faEnvelope} style={{color:"#ffffff"}} size='2x' />
+                  <Button className="blueAlt" href="mailto:logan@convergent.cx" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon className="blueAlt" icon={faEnvelope} size='2x' />
                   </Button>
                 </Grid>
                 {/* <Grid item xs={0} md={2} />
