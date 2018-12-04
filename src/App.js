@@ -234,7 +234,7 @@ class App extends Component {
           <Grid item xs={0} md={3} />
           <Grid item xs={12} md={6} style={{ textAlign: 'center', color: '#FFFFFF' }}>
             <h1 style={{ fontSize: '3em', textShadow: '3px -3px #232323, 2px -2px #232323, 1px -1px #232323, 2.5px -2.5px #232323, 1.5px -1.5px #232323, 0.5px -0.5px #232323' }}>
-              Launch your own cryptocurrency and tokenize your life.
+              Launch your own cryptocurrency and tokenize your work.
             </h1>
           </Grid>
           <Grid item xs={0} md={3} />
