@@ -208,7 +208,7 @@ class App extends Component {
             <h1 style={{ fontSize: '3em', textShadow: '-3px -3px #0044FF, -2px -2px #0044FF, -1px -1px #0044FF, -2.5px -2.5px #0044FF, -1.5px -1.5px #0044FF, -0.5px -0.5px #0044FF' }}>Unlock your personal economy.</h1>
             <br /><br /><br />
             <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '7vh' }}>
-              <Button size="large" variant="extendedFab" style={{ color: '#FFFFFF', background: '#0044FF' }} onClick={() => window.open('https://ipfs.io/ipfs/QmYDfuvC5yDLSRJWcZNfVnSMLSBgPkaKoWjgEYKjwXZrA3')}>Learn More</Button>
+              <Button size="large" variant="extendedFab" style={{ color: '#FFFFFF', background: '#0044FF' }} onClick={() => window.open('https://github.com/convergentcx/whitepaper/blob/master/pdf/convergent.pdf')}>LEARN MORE</Button>
               <div>
                 <Button size="large" variant="extendedFab" style={{ color: '#FFFFFF', background: '#232323' }} onClick={this.openPopup}>
                   EARLY ACCESS
@@ -234,7 +234,7 @@ class App extends Component {
           <Grid item xs={0} md={3} />
           <Grid item xs={12} md={6} style={{ textAlign: 'center', color: '#FFFFFF' }}>
             <h1 style={{ fontSize: '3em', textShadow: '3px -3px #232323, 2px -2px #232323, 1px -1px #232323, 2.5px -2.5px #232323, 1.5px -1.5px #232323, 0.5px -0.5px #232323' }}>
-              Launch your own cryptocurrency and tokenize your work.
+              Launch your own cryptocurrency and tokenize your work, time, or attention.
             </h1>
           </Grid>
           <Grid item xs={0} md={3} />
@@ -269,17 +269,17 @@ class App extends Component {
           <Grid item xs={12} md={4} style={{ textAlign: 'center', color: '#FFFFFF', marginBottom: '5vh' }}>
             <div className="circle">
               <p style={{display: 'table-cell', verticalAlign: 'middle', padding: '20%'}}>
-                Honor your token to build trust, attract contributors and raise capital.
+                Honor your token to build trust, attract contributors, and raise capital.
               </p>
             </div>
           </Grid>
 
           <Grid item xs={12} style={{ textAlign: 'center', display: 'flex', justifyContent: 'center', paddingTop: '5vh' }}>
-            <Tooltip title="Not yet available" placement="top">
-              <Button size="large" variant="extendedFab" style={{ color: '#505050', background: '#303030', cursor: 'default' }}>
-                Try the product
+            {/* <Tooltip title="" placement="top"> */}
+              <Button size="large" variant="extendedFab" style={{ color: '#505050', background: '#303030', cursor: 'default' }} onClick={() => window.open('https://proto.convergent.cx')}>
+                PROTOTYPE ON RINKEBY
               </Button>
-            </Tooltip>
+            {/* </Tooltip> */}
           </Grid>
         </Grid>
 
