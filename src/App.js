@@ -210,9 +210,16 @@ class App extends Component {
             <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '7vh' }}>
               <Button size="large" variant="extendedFab" style={{ color: '#FFFFFF', background: '#0044FF' }} onClick={() => window.open('https://github.com/convergentcx/whitepaper/blob/master/pdf/convergent.pdf')}>LEARN MORE</Button>
               <div>
-                <Button size="large" variant="extendedFab" style={{ color: '#FFFFFF', background: '#232323' }} onClick={this.openPopup}>
-                  EARLY ACCESS
+                <a href="https://goo.gl/forms/brZ0FEij8CKstZ9E2" style={{textDecoration: 'none'}}>
+                  <Button
+                    size="large"
+                    variant="extendedFab"
+                    style={{ color: '#FFFFFF', background: '#232323' }}
+                  // onClick={this.openPopup}
+                  >
+                    EARLY ACCESS
             </Button>
+                </a>
               </div>
             </div>
           </Grid>
@@ -260,7 +267,7 @@ class App extends Component {
 
           <Grid item xs={12} md={4} style={{ textAlign: 'center', color: '#FFFFFF', marginBottom: '5vh' }}>
             <div className="circle">
-              <p style={{display: 'table-cell', verticalAlign: 'middle', padding: '20%'}}>
+              <p style={{ display: 'table-cell', verticalAlign: 'middle', padding: '20%' }}>
                 The market trades your currency and determines the value of your promise.
               </p>
             </div>
@@ -363,12 +370,12 @@ class App extends Component {
         </Dialog>
 
         {/* Footer */}
-        <Grid container style={{ bottom: 0, backgroundColor: '#FFFFFF'}}>
+        <Grid container style={{ bottom: 0, backgroundColor: '#FFFFFF' }}>
           <Grid item xs={12}>
             <Paper position="static" square elevation={12} style={{ backgroundColor: '#000000', height: '24vh', display: 'flex', alignItems: 'center' }}>
               <Grid container style={{ paddingLeft: '2%', paddingRight: '2%' }}>
 
-                <Grid item xs={12} md={12} style={{display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Grid item xs={12} md={12} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <Button className="blueAlt" href="https://twitter.com/ConvergentCx" target="_blank" rel="noopener noreferrer">
                     <FontAwesomeIcon className="blueAlt" icon={faTwitter} size='2x' />
                   </Button>

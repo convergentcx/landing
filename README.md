@@ -2,4 +2,4 @@
 
 # landing
 
-The virtual facade of the Convergent castle.
+The virtual gates of the Convergent castle.
