@@ -282,7 +282,7 @@ class App extends Component {
 
           <Grid item xs={12} style={{ textAlign: 'center', display: 'flex', justifyContent: 'center', paddingTop: '5vh' }}>
             {/* <Tooltip title="" placement="top"> */}
-              <Button size="large" variant="extendedFab" style={{ color: '#505050', background: '#303030', cursor: 'default' }} onClick={() => window.open('https://proto.convergent.cx')}>
+              <Button size="large" variant="extendedFab" style={{ color: '#FFFFFF', background: '#303030', cursor: 'default' }} onClick={() => window.open('https://proto.convergent.cx')}>
                 PROTOTYPE ON RINKEBY
               </Button>
             {/* </Tooltip> */}
