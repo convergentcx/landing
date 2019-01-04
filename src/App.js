@@ -21,7 +21,6 @@ import {
   MenuItem,
   Paper,
   Toolbar,
-  Tooltip,
   Typography,
 } from '@material-ui/core';
 
