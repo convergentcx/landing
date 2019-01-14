@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import ReactGA from 'react-ga';
 import * as typeformEmbed from '@typeform/embed';
+import styled from 'styled-components';
 
 import {
   AppBar,
   Button,
-  Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  CardMedia,
+  // Card,
+  // CardActionArea,
+  // CardActions,
+  // CardContent,
+  // CardMedia,
   Dialog,
   DialogActions,
   DialogContent,
@@ -24,17 +25,19 @@ import {
   Typography,
 } from '@material-ui/core';
 
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import YoutubeEmbedVideo from 'youtube-embed-video';
+// import YoutubeEmbedVideo from 'youtube-embed-video';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDiscord, faGithub, faMediumM, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faBars, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faCoins, faChartLine, faHandshake, faPlay, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 import Logo from './logo.png';
-import LoganPhoto from './logan_16x9.JPG';
+import LogoW from './logo-white-plain.png';
+import LoganPhoto from './Logan-Saether.jpg';
 import AchillPhoto from './achill_16x9.jpg';
 // import ethereum from './ethereum.png';
 import './app.css'
@@ -163,6 +166,41 @@ class TopNavbar extends Component {
   }
 }
 
+const MyButton = styled.button`
+  cursor: pointer;
+  background: #2424D0;
+  color: #FFF;
+  padding: 25px 40px;
+  border: 0;
+`;
+
+const OutlineButton = styled.button`
+  cursor: pointer;
+  background: transparent;
+  border-color: #AAAAAA;
+  border-style: solid;
+  border-width: 0.8px;
+  padding: 25px 40px;
+  color: #fff;
+`;
+
+const Avi = styled.img`
+  border-radius: 40px;
+  width: 300px;
+  :hover {
+    cursor: pointer;
+    color: black;
+    opacity: 0.8;
+  }
+`;
+
+const Headline = styled.h1`
+  @media only screen and (max-device-width: 600px) {
+    font-size: 3rem;
+  }
+  font-size: 5rem;
+`
+
 class App extends Component {
 
   constructor(props) {
@@ -199,14 +237,39 @@ class App extends Component {
       }}>
 
         {/* Top Navbar */}
-        <TopNavbar />
+        {/* <TopNavbar /> */}
 
         {/* Hero */}
-        <Grid container style={{ paddingTop: '5vh', backgroundColor: '#232323', paddingBottom: '5vh' }}>
-          <Grid item xs={12} md={6} style={{ textAlign: 'center', color: '#FFFFFF', minHeight: '50vh', marginBottom: '50px' }}>
-            <h1 style={{ fontSize: '3em', textShadow: '-3px -3px #0044FF, -2px -2px #0044FF, -1px -1px #0044FF, -2.5px -2.5px #0044FF, -1.5px -1.5px #0044FF, -0.5px -0.5px #0044FF' }}>Unlock your personal economy.</h1>
-            <br /><br /><br />
-            <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '7vh' }}>
+        <Grid container style={{ paddingTop: '8%', backgroundColor: '#05021A', paddingBottom: '5vh' }}>
+
+          <Grid item xs={2}/>
+          <Grid item xs={8} style={{ textAlign: 'center', color: '#FFFFFF', minHeight: '50vh', marginBottom: '50px' }}>
+            <div style={{display: 'flex', alignItems: 'flex-start', height: '60px', justifyContent: 'center' }}>
+              <h1 style={{ fontSize: '1.8rem' }}>
+              <img src={LogoW} style={{ width: '35px', height: '35px'}}/>&nbsp; Convergent
+              </h1>
+            </div>
+            <br/>
+            <Headline>
+              Unlock your personal economy
+            </Headline>
+            <h4 style={{ color: 'grey', marginTop: '-25px', fontSize: '1.5rem' }}>
+              Launch your own cryptocurrency and
+            </h4>
+            <h4 style={{ color: 'grey', marginTop: '-25px', fontSize: '1.5rem' }}>
+              tokenize your work, time, or attention
+            </h4>
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '7vh' }}>
+              <MyButton onClick={() => window.open('https://www.youtube.com/watch?v=BXLjMA-BZYA')}>
+                <FontAwesomeIcon icon={faPlay}/> Watch Demo Video
+              </MyButton>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <OutlineButton onClick={this.openPopup}>
+                Apply for Early Access
+              </OutlineButton>
+
+
+{/*             
               <Button size="large" variant="extendedFab" style={{ color: '#FFFFFF', background: '#0044FF' }} onClick={() => window.open('https://github.com/convergentcx/whitepaper/blob/master/pdf/convergent.pdf')}>LEARN MORE</Button>
               <div>
                 <a href="https://goo.gl/forms/brZ0FEij8CKstZ9E2" style={{textDecoration: 'none'}}>
@@ -219,12 +282,14 @@ class App extends Component {
                     EARLY ACCESS
             </Button>
                 </a>
-              </div>
+              </div> */}
             </div>
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={2}/>
+
+
+          {/* <Grid item xs={12} md={6}>
             <Paper style={{ margin: '25px', height: '54vh', textAlign: 'center', paddingTop: '30px' }}>
-              {/* <h2 style={{ paddingTop: '25px' }}>Launch your own cryptocurrency and regain your freedom.</h2> */}
               <YoutubeEmbedVideo
                 videoId="BXLjMA-BZYA"
                 showInfo={false}
@@ -232,76 +297,73 @@ class App extends Component {
                 style={{ width: '80%', height: '90%' }}
               />
             </Paper>
-          </Grid>
+          </Grid> */}
         </Grid>
 
-        {/* Attention */}
-        <Grid container style={{ backgroundColor: '#0044FF', minHeight: '60vh', paddingBottom: '5vh', alignItems: 'center' }}>
+        {/* How it Works */}
+        <Grid container style={{ backgroundColor: '#2424D0', paddingTop: '6%', paddingBottom: '8%', minHeight: '60vh', alignItems: 'center' }}>
           <Grid item xs={0} md={3} />
           <Grid item xs={12} md={6} style={{ textAlign: 'center', color: '#FFFFFF' }}>
-            <h1 style={{ fontSize: '3em', textShadow: '3px -3px #232323, 2px -2px #232323, 1px -1px #232323, 2.5px -2.5px #232323, 1.5px -1.5px #232323, 0.5px -0.5px #232323' }}>
-              Launch your own cryptocurrency and tokenize your work, time, or attention.
-            </h1>
+            <h1>How it Works</h1>
           </Grid>
           <Grid item xs={0} md={3} />
+
+          <Grid item xs={12} md={4} style={{ textAlign: 'center', color: '#FFFFFF', marginTop: '6%', marginBottom: '4%' }}>
+            <FontAwesomeIcon icon={faCoins} size="6x"/>
+            <p style={{ padding: '3% 15% 0'}}>
+              Launch your cryptocurrency and decide what content or services you'll offer for it.
+            </p>
+          </Grid>
+
+          <Grid item xs={12} md={4} style={{ textAlign: 'center', color: '#FFFFFF', marginTop: '6%', marginBottom: '4%' }}>
+            <FontAwesomeIcon icon={faChartLine} size="6x"/>
+            <p style={{ padding: '3% 15% 0'}}>
+              Contributors trade your currency and determine the value of your promise -- while you raise funds.
+            </p>
+          </Grid>
+
+          <Grid item xs={12} md={4} style={{ textAlign: 'center', color: '#FFFFFF', marginTop: '6%', marginBottom: '4%' }}>
+            <FontAwesomeIcon icon={faHandshake} size="6x"/>
+            <p style={{ padding: '3% 15% 0'}}>
+              Honor your token to build trust, attract contributors, and raise capital.
+            </p>
+          </Grid>
+
+          <Grid item xs={12} style={{ textAlign: 'center' }}>
+            <OutlineButton onClick={() => window.open('https://proto.convergent.cx')}>
+              Try our Testnet Demo
+            </OutlineButton>
+          </Grid>
         </Grid>
 
-        {/* About */}
-        <Grid container style={{ alignItems: 'center', backgroundColor: '#AAAAAA', minHeight: '50vh', paddingBottom: '5vh' }}>
+        {/* Join the Community */}
+        {/* <Grid container style={{ alignItems: 'center', backgroundColor: '#AAAAAA', minHeight: '50vh', paddingBottom: '5vh' }}>
           <Grid item xs={0} md={3} />
           <Grid item xs={12} md={6} style={{ textAlign: 'center', color: '#FFFFFF', marginBottom: '2.5vh' }}>
-            <h1 style={{ fontSize: '3em', textShadow: '-3px -3px #232323, -2px -2px #232323, -1px -1px #232323, -2.5px -2.5px #232323, -1.5px -1.5px #232323, -0.5px -0.5px #232323' }}>
-              How it works
+            <h1 style={{ fontSize: '3em' }}>
+              Join the Community
+            </h1>
+          </Grid>
+          <Grid item xs={0} md={3} />
+        </Grid> */}
+
+        {/* TEAM */}
+        <Grid container style={{ backgroundColor: '#05021A', minHeight: '80vh', paddingTop: '6%', paddingBottom: '8%' }}>
+          <Grid item xs={0} md={3} />
+          <Grid item xs={12} md={6} style={{ textAlign: 'center', color: '#FFFFFF' }}>
+            <h1 style={{ fontSize: '', marginBottom: '88px' }}>
+              The Team
             </h1>
           </Grid>
           <Grid item xs={0} md={3} />
 
-          <Grid item xs={12} md={4} style={{ textAlign: 'center', color: '#FFFFFF', marginBottom: '5vh' }}>
-            <div className="circle">
-              <p style={{ display: 'table-cell', verticalAlign: 'middle', padding: '20%' }}>
-                Launch a token and decide what services you will exchange for it.
-              </p>
-            </div>
-          </Grid>
-
-          <Grid item xs={12} md={4} style={{ textAlign: 'center', color: '#FFFFFF', marginBottom: '5vh' }}>
-            <div className="circle">
-              <p style={{ display: 'table-cell', verticalAlign: 'middle', padding: '20%' }}>
-                The market trades your currency and determines the value of your promise.
-              </p>
-            </div>
-          </Grid>
-
-          <Grid item xs={12} md={4} style={{ textAlign: 'center', color: '#FFFFFF', marginBottom: '5vh' }}>
-            <div className="circle">
-              <p style={{display: 'table-cell', verticalAlign: 'middle', padding: '20%'}}>
-                Honor your token to build trust, attract contributors, and raise capital.
-              </p>
-            </div>
-          </Grid>
-
-          <Grid item xs={12} style={{ textAlign: 'center', display: 'flex', justifyContent: 'center', paddingTop: '5vh' }}>
-            {/* <Tooltip title="" placement="top"> */}
-              <Button size="large" variant="extendedFab" style={{ color: '#FFFFFF', background: '#303030', cursor: 'default' }} onClick={() => window.open('https://proto.convergent.cx')}>
-                PROTOTYPE ON RINKEBY
-              </Button>
-            {/* </Tooltip> */}
-          </Grid>
-        </Grid>
-
-        {/* TODO */}
-
-        <Grid container style={{ backgroundColor: '#232323', minHeight: '50vh', paddingBottom: '5vh' }}>
-          <Grid item xs={0} md={3} />
-          <Grid item xs={12} md={6} style={{ textAlign: 'center', color: '#FFFFFF' }}>
-            <h1 style={{ fontSize: '3em', textShadow: '3px -3px #0044FF, 2px -2px #0044FF, 1px -1px #0044FF, 2.5px -2.5px #0044FF, 1.5px -1.5px #0044FF, 0.5px -0.5px #0044FF' }}>The Team</h1>
-          </Grid>
           <Grid item xs={0} md={3} />
 
-          <Grid item xs={0} md={3} />
-
-          <Grid item xs={12} md={3}>
-            <Card style={{ margin: '12px' }}>
+          <Grid item xs={12} md={3} style={{ color: '#FFF', textAlign: 'center' }}>
+            <Avi src={Logan.picture} onClick={()=> this.setState({ open: true, who: 'logan' })}/>
+            <h4>Logan Saether</h4>
+            <h5 style={{ color: 'grey', marginTop: '-16px' }}>Initiator and Lead Link</h5>
+            {/* <Card style={{ margin: '12px' }}>
               <CardActionArea>
                 <CardMedia alt="Achill" image={Achill.picture} style={{ height: '0', paddingTop: '56.25%' }} />
                 <CardContent>
@@ -321,11 +383,14 @@ class App extends Component {
                   Economy
                 </Button>
               </CardActions>
-            </Card>
+            </Card> */}
           </Grid>
 
-          <Grid item xs={12} md={3}>
-            <Card style={{ margin: '12px' }}>
+          <Grid item xs={12} md={3} style={{ color: '#FFF', textAlign: 'center' }}>
+          <Avi src={Achill.picture} onClick={() => this.setState({ open: true, who: 'achill' })}/>
+          <h4>Achill Rudolph</h4>
+          <h5 style={{ color: 'grey', marginTop: '-16px' }}>Initiator and Lead Link</h5>
+            {/* <Card style={{ margin: '12px' }}>
               <CardActionArea>
                 <CardMedia alt="Logan" image={Logan.picture} style={{ height: '0', paddingTop: '56.25%' }} />
                 <CardContent>
@@ -345,7 +410,7 @@ class App extends Component {
                   Economy
                 </Button>
               </CardActions>
-            </Card>
+            </Card> */}
           </Grid>
 
           <Grid item xs={0} md={3} />
@@ -371,7 +436,7 @@ class App extends Component {
         {/* Footer */}
         <Grid container style={{ bottom: 0, backgroundColor: '#FFFFFF' }}>
           <Grid item xs={12}>
-            <Paper position="static" square elevation={12} style={{ backgroundColor: '#000000', height: '24vh', display: 'flex', alignItems: 'center' }}>
+            <Paper position="static" square elevation={12} style={{ backgroundColor: '#000000', height: '36vh', display: 'flex', alignItems: 'center' }}>
               <Grid container style={{ paddingLeft: '2%', paddingRight: '2%' }}>
 
                 <Grid item xs={12} md={12} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
