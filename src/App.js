@@ -12,11 +12,7 @@ import {
   DialogContentText,
   DialogTitle,
   Grid,
-  IconButton,
-  Menu,
-  MenuItem,
   Paper,
-  Toolbar,
   Typography,
 } from '@material-ui/core';
 
@@ -27,17 +23,17 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDiscord, faGithub, faMediumM, faTwitter, faEthereum } from '@fortawesome/free-brands-svg-icons';
-import { faBars, faCoins, faChartLine, faHandshake, faPlay, faEnvelope, faLockOpen, faPallet, faUserFriends, faPaintBrush } from '@fortawesome/free-solid-svg-icons'
+import { faCoins, faChartLine, faHandshake, faPlay, faEnvelope, faUserFriends, faPaintBrush } from '@fortawesome/free-solid-svg-icons'
 
 // Pics
-import Logo from './logo.png';
+// import Logo from './logo.png';
 import LogoW from './logo-white-plain.png';
 import LoganPhoto from './Logan-Saether.jpg';
 import AchillPhoto from './achill_16x9.jpg';
 import Artist from './artist.jpg';
 import DJ from './dj.jpg';
-import Photographer from './photographer.jpg';
-import Spraypaint from './spraypaint.jpg';
+// import Photographer from './photographer.jpg';
+// import Spraypaint from './spraypaint.jpg';
 import Woman from './woman.jpg';
 
 import './app.css'
@@ -95,76 +91,76 @@ const team = {
   'logan': Logan,
 }
 
-class TopNavbar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      anchorEl: null,
-    };
-  }
+// class TopNavbar extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       anchorEl: null,
+//     };
+//   }
 
-  handleClick = (event) => {
-    this.setState({ anchorEl: event.currentTarget });
-  }
+//   handleClick = (event) => {
+//     this.setState({ anchorEl: event.currentTarget });
+//   }
 
-  handleClose = () => {
-    this.setState({ anchorEl: null });
-  }
+//   handleClose = () => {
+//     this.setState({ anchorEl: null });
+//   }
 
-  render() {
-    const { anchorEl } = this.state;
+//   render() {
+//     const { anchorEl } = this.state;
 
-    return (
-      <AppBar position="sticky" elevation={3} color="default" style={{ paddingLeft: '2%', paddingRight: '2%' }}>
-        <Toolbar>
-          <img src={Logo} alt="Convergent" height="40px" width="40px" />
-          &nbsp;&nbsp;
-          <Typography variant="h5" color="inherit" noWrap>
-            Convergent
-          </Typography>
-          <div style={{ flexGrow: 1 }} />
-          <div className="hide-mobile">
-            <Button className="blue" href="https://twitter.com/ConvergentCx" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faTwitter} size='2x' />
-            </Button>
-            <Button className="blue" href="https://medium.com/convergentcx" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faMediumM} size='2x' />
-            </Button>
-            <Button className="blue" href="https://github.com/convergentcx" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faGithub} size='2x' />
-            </Button>
-            <Button className="blue" href="https://discord.gg/JUPx5Xg" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faDiscord} size='2x' />
-            </Button>
-            <Button className="blue" href="mailto:logan@convergent.cx" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faEnvelope} size='2x' />
-            </Button>
-          </div>
-          <div className="show-mobile">
-            <IconButton onClick={this.handleClick}>
-              <FontAwesomeIcon icon={faBars} size='1x' style={{ color: "#000000" }} />
-            </IconButton>
-          </div>
-        </Toolbar>
+//     return (
+//       <AppBar position="sticky" elevation={3} color="default" style={{ paddingLeft: '2%', paddingRight: '2%' }}>
+//         <Toolbar>
+//           <img src={Logo} alt="Convergent" height="40px" width="40px" />
+//           &nbsp;&nbsp;
+//           <Typography variant="h5" color="inherit" noWrap>
+//             Convergent
+//           </Typography>
+//           <div style={{ flexGrow: 1 }} />
+//           <div className="hide-mobile">
+//             <Button className="blue" href="https://twitter.com/ConvergentCx" target="_blank" rel="noopener noreferrer">
+//               <FontAwesomeIcon icon={faTwitter} size='2x' />
+//             </Button>
+//             <Button className="blue" href="https://medium.com/convergentcx" target="_blank" rel="noopener noreferrer">
+//               <FontAwesomeIcon icon={faMediumM} size='2x' />
+//             </Button>
+//             <Button className="blue" href="https://github.com/convergentcx" target="_blank" rel="noopener noreferrer">
+//               <FontAwesomeIcon icon={faGithub} size='2x' />
+//             </Button>
+//             <Button className="blue" href="https://discord.gg/JUPx5Xg" target="_blank" rel="noopener noreferrer">
+//               <FontAwesomeIcon icon={faDiscord} size='2x' />
+//             </Button>
+//             <Button className="blue" href="mailto:logan@convergent.cx" target="_blank" rel="noopener noreferrer">
+//               <FontAwesomeIcon icon={faEnvelope} size='2x' />
+//             </Button>
+//           </div>
+//           <div className="show-mobile">
+//             <IconButton onClick={this.handleClick}>
+//               <FontAwesomeIcon icon={faBars} size='1x' style={{ color: "#000000" }} />
+//             </IconButton>
+//           </div>
+//         </Toolbar>
 
-        {/* Mobile Only Menu */}
-        <Menu
-          id="simple-menu"
-          anchorEl={anchorEl}
-          open={Boolean(anchorEl)}
-          onClose={this.handleClose}
-        >
-          <MenuItem onClick={() => window.open('https://twitter.com/ConvergentCx')}>Twitter</MenuItem>
-          <MenuItem onClick={() => window.open('https://medium.com/convergentcx')}>Medium</MenuItem>
-          <MenuItem onClick={() => window.open('https://github.com/convergentcx')}>GitHub</MenuItem>
-          <MenuItem onClick={() => window.open('https://discord.gg/JUPx5Xg')}>Discord</MenuItem>
-          <MenuItem onClick={() => window.open('mailto:logan@convergent.cx')}>Email</MenuItem>
-        </Menu>
+//         {/* Mobile Only Menu */}
+//         <Menu
+//           id="simple-menu"
+//           anchorEl={anchorEl}
+//           open={Boolean(anchorEl)}
+//           onClose={this.handleClose}
+//         >
+//           <MenuItem onClick={() => window.open('https://twitter.com/ConvergentCx')}>Twitter</MenuItem>
+//           <MenuItem onClick={() => window.open('https://medium.com/convergentcx')}>Medium</MenuItem>
+//           <MenuItem onClick={() => window.open('https://github.com/convergentcx')}>GitHub</MenuItem>
+//           <MenuItem onClick={() => window.open('https://discord.gg/JUPx5Xg')}>Discord</MenuItem>
+//           <MenuItem onClick={() => window.open('mailto:logan@convergent.cx')}>Email</MenuItem>
+//         </Menu>
 
-      </AppBar>
-    );
-  }
-}
+//       </AppBar>
+//     );
+//   }
+// }
 
 const MyButton = styled.button`
   cursor: pointer;
@@ -227,7 +223,6 @@ const Headline = styled.h1`
 `
 
 class App extends Component {
-
   constructor(props) {
     super(props);
 
@@ -261,11 +256,8 @@ class App extends Component {
         } catch { }
       }}>
 
-        {/* Top Navbar */}
-        {/* <TopNavbar /> */}
-
-        {/* Hero */}
-        <Grid container style={{ paddingTop: '', background: `url(${Artist}) no-repeat`, backgroundSize: '120%', backgroundPosition: '0 80%', paddingBottom: '' }}>
+        {/* CONVERGENT */}
+        <Grid container style={{ background: `url(${Artist}) no-repeat`, backgroundSize: '120%', backgroundPosition: '0 80%', minHeight: '100vh' }}>
 
           <Grid item xs={2} style={{ background: 'rgba(0,0,0,0.4)' }}/>
           <Grid item xs={8} style={{ paddingTop: '12vh', textAlign: 'center', color: '#FFFFFF', minHeight: '50vh', paddingBottom: '50px', background: 'rgba(0,0,0,0.4)' }}>
@@ -299,12 +291,12 @@ class App extends Component {
         </Grid>
 
         {/* How it Works */}
-        <Grid container style={{ background: '#2424D0', paddingTop: '6%', paddingBottom: '6%', minHeight: '60vh', alignItems: 'center' }}>
-          <Grid item xs={0} md={3} />
+        <Grid container style={{ background: '#2424D0', paddingTop: '6%', paddingBottom: '6%', minHeight: '100vh', alignItems: 'center' }}>
+          <Grid item xs={false} md={3} />
           <Grid item xs={12} md={6} style={{ textAlign: 'center', color: '#FFFFFF' }}>
             <h1>How it Works</h1>
           </Grid>
-          <Grid item xs={0} md={3} />
+          <Grid item xs={false} md={3} />
 
           <Grid item xs={12} md={4} style={{ textAlign: 'center', color: '#FFFFFF', marginTop: '6%', marginBottom: '6%' }}>
             <FontAwesomeIcon icon={faCoins} size="6x"/>
@@ -338,7 +330,9 @@ class App extends Component {
           </Grid>
         </Grid>
 
-        <Grid container style={{ alignItems: 'center', background: `url(${DJ})`, backgroundSize: 'cover', backgroundPosition: '0 100%', minHeight: '110vh', paddingTop: '', paddingBottom: '0', margin: '0', }}>
+
+        {/* PERMISSIONLESS */}
+        <Grid container style={{ alignItems: 'center', background: `url(${DJ})`, backgroundSize: 'cover', backgroundPosition: '0 100%', minHeight: '100vh', paddingTop: '', paddingBottom: '0', margin: '0', }}>
           <Grid item xs={12} style={{ textAlign: 'left', color: '#FFF', fontSize: '5rem', textShadow: '2px 2px 4px black', }}>
             <div style={{ background: 'rgba(0,0,0,0)', paddingLeft: '8%', position: 'relative', top: '-208px'}}>
               <div style={{marginTop: ''}}>
@@ -361,15 +355,15 @@ class App extends Component {
         </Grid>
 
 
-        {/* Join the Community */}
-        <Grid container style={{ alignItems: 'center', background: '#6F0903', minHeight: '50vh', paddingTop: '6%', paddingBottom: '6%', minHeight: '60vh' }}>
-          <Grid item xs={0} md={3} />
+        {/* USER STORIES */}
+        <Grid container style={{ alignItems: 'center', background: '#6F0903', paddingTop: '6%', paddingBottom: '6%', minHeight: '100vh' }}>
+          <Grid item xs={false} md={3} />
           <Grid item xs={12} md={6} style={{ textAlign: 'center', color: '#FFFFFF', marginBottom: '10vh' }}>
             <h1 style={{ fontSize: '' }}>
               Meet Our Users
             </h1>
           </Grid>
-          <Grid item xs={0} md={3} />
+          <Grid item xs={false} md={3} />
 
           <div>
           <Grid item xs={5} style={{ display: 'flex', justifyContent: 'center', marginTop: '', marginBottom: '6%' }}>
@@ -385,13 +379,13 @@ class App extends Component {
         </Grid>
 
         <Grid container style={{ alignItems: 'center', background: '#05021A', minHeight: '50vh', paddingTop: '3%', paddingBottom: '15vh' }}>
-          <Grid item xs={0} md={3} />
+          <Grid item xs={false} md={3} />
           <Grid item xs={12} md={6} style={{ textAlign: 'center', color: '#FFFFFF', marginBottom: '10vh' }}>
             <h1 style={{ fontSize: '' }}>
               Your Content, Your Way
             </h1>
           </Grid>
-          <Grid item xs={0} md={3} />
+          <Grid item xs={false} md={3} />
           <Grid item xs={12} md={4} style={{ textAlign: 'center', color: '#FFFFFF', marginTop: '6%', marginBottom: '6%' }}>
             <FontAwesomeIcon icon={faEthereum} size="6x"/>
             <h3>Permissionless</h3>
@@ -427,15 +421,15 @@ class App extends Component {
 
         {/* TEAM */}
         <Grid container style={{ background: 'linear-gradient(#05021A, #2424D0)', minHeight: '80vh', paddingTop: '6%', paddingBottom: '8%' }}>
-          <Grid item xs={0} md={3} />
+          <Grid item xs={false} md={3} />
           <Grid item xs={12} md={6} style={{ textAlign: 'center', color: '#FFFFFF' }}>
             <h1 style={{ fontSize: '', marginBottom: '88px' }}>
               The Team
             </h1>
           </Grid>
-          <Grid item xs={0} md={3} />
+          <Grid item xs={false} md={3} />
 
-          <Grid item xs={0} md={3} />
+          <Grid item xs={false} md={3} />
 
           <Grid item xs={12} md={3} style={{ color: '#FFF', textAlign: 'center' }}>
             <Avi src={Logan.picture} onClick={()=> this.setState({ open: true, who: 'logan' })}/>
@@ -491,7 +485,7 @@ class App extends Component {
             </Card> */}
           </Grid>
 
-          <Grid item xs={0} md={3} />
+          <Grid item xs={false} md={3} />
         </Grid>
 
         {/* Dialog */}
@@ -505,9 +499,9 @@ class App extends Component {
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <FontAwesomeIcon className="blue" icon={faTwitter} onClick={() => window.open(subject.socials.twitter)} size='md' style={{ padding: '5px' }} />
-            <FontAwesomeIcon className="blue" icon={faMediumM} onClick={() => window.open(subject.socials.medium)} size='md' style={{ padding: '5px' }} />
-            <FontAwesomeIcon className="blue" icon={faGithub} onClick={() => window.open(subject.socials.github)} size='md' style={{ padding: '5px' }} />
+            <FontAwesomeIcon className="blue" icon={faTwitter} onClick={() => window.open(subject.socials.twitter)} style={{ padding: '5px' }} />
+            <FontAwesomeIcon className="blue" icon={faMediumM} onClick={() => window.open(subject.socials.medium)} style={{ padding: '5px' }} />
+            <FontAwesomeIcon className="blue" icon={faGithub} onClick={() => window.open(subject.socials.github)} style={{ padding: '5px' }} />
           </DialogActions>
         </Dialog>
 
@@ -515,9 +509,9 @@ class App extends Component {
         <Grid container style={{ bottom: 0, backgroundColor: '#FFFFFF' }}>
           <Grid item xs={12}>
             <Paper position="static" square elevation={12} style={{ backgroundColor: '#000000', height: '36vh', display: 'flex', alignItems: 'center' }}>
-              <Grid container style={{ paddingLeft: '2%', paddingRight: '2%' }}>
+              <Grid container style={{ paddingLeft: '2%', paddingRight: '2%', background: '', height: '100%', display: 'flex', alignItems: 'flex-end' }}>
 
-                <Grid item xs={12} md={12} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Grid item xs={12} md={12} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: '' }}>
                   <Button className="blueAlt" href="https://twitter.com/ConvergentCx" target="_blank" rel="noopener noreferrer">
                     <FontAwesomeIcon className="blueAlt" icon={faTwitter} size='2x' />
                   </Button>
@@ -534,7 +528,7 @@ class App extends Component {
                     <FontAwesomeIcon className="blueAlt" icon={faEnvelope} size='2x' />
                   </Button>
                 </Grid>
-                {/* <Grid item xs={0} md={2} />
+                {/* <Grid item xs={false} md={2} />
                 <Grid item xs={12} md={8} style={{ color: '#FFFFFF', height: '24vh', padding: '0.5%', background: '', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end' }}>
                   <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">
                     <img alt="Creative Commons License" style={{ borderWidth: 0 }} src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
@@ -542,10 +536,23 @@ class App extends Component {
                 <br />
                 This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>
                 </Grid>
-                <Grid item xs={0} md={2} /> */}
+                <Grid item xs={false} md={2} /> */}
+
+                <Grid item xs={12} style={{ paddingBottom: '2%' }}>
+                  <div style={{ color: '#FFF', display: 'flex', justifyContent: 'center' }}>
+                    Contribute: &nbsp;
+                    <ContribLink href="https://beta.etherscan.io/address/0xb8001be99e38be45fa9caa4a6353ca75063b4e4c" target="_blank" rel="noopener noreferrer">
+                      0xB8001be99e38BE45fa9Caa4A6353Ca75063b4e4c
+                    </ContribLink>
+                  </div>
+                </Grid>
+
               </Grid>
             </Paper>
           </Grid>
+          
+          
+
         </Grid>
 
         {/* Toast */}
@@ -554,5 +561,13 @@ class App extends Component {
     );
   }
 }
+
+const ContribLink = styled.a`
+  text-decoration: none;
+  color: #2424D0;
+  :hover {
+    color: #411999;
+  }
+`;
 
 export default App;
