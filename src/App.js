@@ -6,11 +6,6 @@ import styled from 'styled-components';
 import {
   AppBar,
   Button,
-  // Card,
-  // CardActionArea,
-  // CardActions,
-  // CardContent,
-  // CardMedia,
   Dialog,
   DialogActions,
   DialogContent,
@@ -29,17 +24,22 @@ import {
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-// import YoutubeEmbedVideo from 'youtube-embed-video';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDiscord, faGithub, faMediumM, faTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faBars, faCoins, faChartLine, faHandshake, faPlay, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faDiscord, faGithub, faMediumM, faTwitter, faEthereum } from '@fortawesome/free-brands-svg-icons';
+import { faBars, faCoins, faChartLine, faHandshake, faPlay, faEnvelope, faLockOpen, faPallet, faUserFriends, faPaintBrush } from '@fortawesome/free-solid-svg-icons'
 
+// Pics
 import Logo from './logo.png';
 import LogoW from './logo-white-plain.png';
 import LoganPhoto from './Logan-Saether.jpg';
 import AchillPhoto from './achill_16x9.jpg';
-// import ethereum from './ethereum.png';
+import Artist from './artist.jpg';
+import DJ from './dj.jpg';
+import Photographer from './photographer.jpg';
+import Spraypaint from './spraypaint.jpg';
+import Woman from './woman.jpg';
+
 import './app.css'
 
 const track = (category, action) => ReactGA.event({ category, action });
@@ -172,6 +172,10 @@ const MyButton = styled.button`
   color: #FFF;
   padding: 25px 40px;
   border: 0;
+  transition: 0.3s;
+  :hover {
+    background: #0044FF;
+  }
 `;
 
 const OutlineButton = styled.button`
@@ -182,23 +186,44 @@ const OutlineButton = styled.button`
   border-width: 0.8px;
   padding: 25px 40px;
   color: #fff;
+  transition: 0.3s;
+  :hover {
+    background: #05021A;
+  }
+`;
+
+const AltOutlineButton = styled.button`
+  cursor: pointer;
+  background: transparent;
+  border-color: #FFF;
+  border-style: solid;
+  border-width: 0.8px;
+  padding: 25px 40px;
+  color: #fff;
+  transition: 0.3s;
+  :hover {
+    background: #2424D0;
+  }
 `;
 
 const Avi = styled.img`
   border-radius: 40px;
   width: 300px;
+  transition: 0.3s;
   :hover {
     cursor: pointer;
     color: black;
-    opacity: 0.8;
+    opacity: 0.5;
   }
 `;
 
 const Headline = styled.h1`
+  text-shadow: 2px 2px 4px black; 
   @media only screen and (max-device-width: 600px) {
     font-size: 3rem;
   }
   font-size: 5rem;
+  padding-top: 20px;
 `
 
 class App extends Component {
@@ -214,7 +239,7 @@ class App extends Component {
 
   componentDidMount() {
     printConvergentToConsole();
-    notification();
+    // notification();
   }
 
   openPopup = () => {
@@ -240,25 +265,26 @@ class App extends Component {
         {/* <TopNavbar /> */}
 
         {/* Hero */}
-        <Grid container style={{ paddingTop: '8%', backgroundColor: '#05021A', paddingBottom: '5vh' }}>
+        <Grid container style={{ paddingTop: '', background: `url(${Artist}) no-repeat`, backgroundSize: '120%', backgroundPosition: '0 80%', paddingBottom: '' }}>
 
-          <Grid item xs={2}/>
-          <Grid item xs={8} style={{ textAlign: 'center', color: '#FFFFFF', minHeight: '50vh', marginBottom: '50px' }}>
+          <Grid item xs={2} style={{ background: 'rgba(0,0,0,0.4)' }}/>
+          <Grid item xs={8} style={{ paddingTop: '12vh', textAlign: 'center', color: '#FFFFFF', minHeight: '50vh', paddingBottom: '50px', background: 'rgba(0,0,0,0.4)' }}>
             <div style={{display: 'flex', alignItems: 'flex-start', height: '60px', justifyContent: 'center' }}>
-              <h1 style={{ fontSize: '1.8rem' }}>
+              <h1 style={{ fontSize: '1.8rem',  }}>
               <img src={LogoW} style={{ width: '35px', height: '35px'}}/>&nbsp; Convergent
               </h1>
             </div>
             <br/>
             <Headline>
-              Unlock your personal economy
+              Tokenize Your Work
             </Headline>
-            <h4 style={{ color: 'grey', marginTop: '-25px', fontSize: '1.5rem' }}>
-              Launch your own cryptocurrency and
+            <h4 style={{ color: 'white', marginTop: '-25px', fontSize: '1.5rem', textShadow: '2px 2px 4px black', }}>
+              Blockchain based fundraising for creators
             </h4>
-            <h4 style={{ color: 'grey', marginTop: '-25px', fontSize: '1.5rem' }}>
-              tokenize your work, time, or attention
+            <h4 style={{ color: 'white', marginTop: '-25px', fontSize: '1.5rem', textShadow: '2px 2px 4px black', }}>
+              
             </h4>
+            <div style={{ height: '70px' }}/>
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '7vh' }}>
               <MyButton onClick={() => window.open('https://www.youtube.com/watch?v=BXLjMA-BZYA')}>
                 <FontAwesomeIcon icon={faPlay}/> Watch Demo Video
@@ -267,62 +293,34 @@ class App extends Component {
               <OutlineButton onClick={this.openPopup}>
                 Apply for Early Access
               </OutlineButton>
-
-
-{/*             
-              <Button size="large" variant="extendedFab" style={{ color: '#FFFFFF', background: '#0044FF' }} onClick={() => window.open('https://github.com/convergentcx/whitepaper/blob/master/pdf/convergent.pdf')}>LEARN MORE</Button>
-              <div>
-                <a href="https://goo.gl/forms/brZ0FEij8CKstZ9E2" style={{textDecoration: 'none'}}>
-                  <Button
-                    size="large"
-                    variant="extendedFab"
-                    style={{ color: '#FFFFFF', background: '#232323' }}
-                  // onClick={this.openPopup}
-                  >
-                    EARLY ACCESS
-            </Button>
-                </a>
-              </div> */}
             </div>
           </Grid>
-          <Grid item xs={2}/>
-
-
-          {/* <Grid item xs={12} md={6}>
-            <Paper style={{ margin: '25px', height: '54vh', textAlign: 'center', paddingTop: '30px' }}>
-              <YoutubeEmbedVideo
-                videoId="BXLjMA-BZYA"
-                showInfo={false}
-                suggestions={false}
-                style={{ width: '80%', height: '90%' }}
-              />
-            </Paper>
-          </Grid> */}
+          <Grid item xs={2} style={{ background: 'rgba(0,0,0,0.4)' }}/>
         </Grid>
 
         {/* How it Works */}
-        <Grid container style={{ backgroundColor: '#2424D0', paddingTop: '6%', paddingBottom: '8%', minHeight: '60vh', alignItems: 'center' }}>
+        <Grid container style={{ background: '#2424D0', paddingTop: '6%', paddingBottom: '6%', minHeight: '60vh', alignItems: 'center' }}>
           <Grid item xs={0} md={3} />
           <Grid item xs={12} md={6} style={{ textAlign: 'center', color: '#FFFFFF' }}>
             <h1>How it Works</h1>
           </Grid>
           <Grid item xs={0} md={3} />
 
-          <Grid item xs={12} md={4} style={{ textAlign: 'center', color: '#FFFFFF', marginTop: '6%', marginBottom: '4%' }}>
+          <Grid item xs={12} md={4} style={{ textAlign: 'center', color: '#FFFFFF', marginTop: '6%', marginBottom: '6%' }}>
             <FontAwesomeIcon icon={faCoins} size="6x"/>
             <p style={{ padding: '3% 15% 0'}}>
-              Launch your cryptocurrency and decide what content or services you'll offer for it.
+              Launch your token and decide what content or services you'll offer for it.
             </p>
           </Grid>
 
-          <Grid item xs={12} md={4} style={{ textAlign: 'center', color: '#FFFFFF', marginTop: '6%', marginBottom: '4%' }}>
+          <Grid item xs={12} md={4} style={{ textAlign: 'center', color: '#FFFFFF', marginTop: '6%', marginBottom: '6%' }}>
             <FontAwesomeIcon icon={faChartLine} size="6x"/>
             <p style={{ padding: '3% 15% 0'}}>
-              Contributors trade your currency and determine the value of your promise -- while you raise funds.
+              Contributors trade your token and determine the value of your promise -- while you raise funds.
             </p>
           </Grid>
 
-          <Grid item xs={12} md={4} style={{ textAlign: 'center', color: '#FFFFFF', marginTop: '6%', marginBottom: '4%' }}>
+          <Grid item xs={12} md={4} style={{ textAlign: 'center', color: '#FFFFFF', marginTop: '6%', marginBottom: '6%' }}>
             <FontAwesomeIcon icon={faHandshake} size="6x"/>
             <p style={{ padding: '3% 15% 0'}}>
               Honor your token to build trust, attract contributors, and raise capital.
@@ -333,22 +331,102 @@ class App extends Component {
             <OutlineButton onClick={() => window.open('https://proto.convergent.cx')}>
               Try our Testnet Demo
             </OutlineButton>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <OutlineButton onClick={() => window.open('https://docs.google.com/presentation/d/e/2PACX-1vQElI7gdx9HQtboMEd-L3yBTZ0Sfez3z-TuDZAx9LEHU_rQzwv0HM6PQcKhVIrOTmnh0CPKyBQNHMsY/pub?start=false&loop=false&slide=id.p')}>
+              Look at Slide Deck
+            </OutlineButton>
           </Grid>
         </Grid>
 
+        <Grid container style={{ alignItems: 'center', background: `url(${DJ})`, backgroundSize: 'cover', backgroundPosition: '0 100%', minHeight: '110vh', paddingTop: '', paddingBottom: '0', margin: '0', }}>
+          <Grid item xs={12} style={{ textAlign: 'left', color: '#FFF', fontSize: '5rem', textShadow: '2px 2px 4px black', }}>
+            <div style={{ background: 'rgba(0,0,0,0)', paddingLeft: '8%', position: 'relative', top: '-208px'}}>
+              <div style={{marginTop: ''}}>
+                Permissionless
+              </div>
+              <h4 style={{ color: 'white', marginTop: '-10px', marginBottom: '5px', fontSize: '1.5rem', textShadow: '2px 2px 4px black', }}>
+                Powered by the Ethereum blockchain
+              </h4>
+            </div>
+          </Grid>
+
+{/* 
+          <Grid item xs={12} md={4} style={{ textAlign: 'center', color: '#FFFFFF' }}>
+            <img src={Photographer} style={{ height: '', width: '100%' }} alt="Photographer"/>
+          </Grid>
+
+          <Grid item xs={12} md={4} style={{ textAlign: 'center', color: '#FFFFFF' }}>
+            <img src={Spraypaint} style={{ height: '', width: '100%' }} alt="Spraypaint"/>
+          </Grid> */}
+        </Grid>
+
+
         {/* Join the Community */}
-        {/* <Grid container style={{ alignItems: 'center', backgroundColor: '#AAAAAA', minHeight: '50vh', paddingBottom: '5vh' }}>
+        <Grid container style={{ alignItems: 'center', background: '#6F0903', minHeight: '50vh', paddingTop: '6%', paddingBottom: '6%', minHeight: '60vh' }}>
           <Grid item xs={0} md={3} />
-          <Grid item xs={12} md={6} style={{ textAlign: 'center', color: '#FFFFFF', marginBottom: '2.5vh' }}>
-            <h1 style={{ fontSize: '3em' }}>
-              Join the Community
+          <Grid item xs={12} md={6} style={{ textAlign: 'center', color: '#FFFFFF', marginBottom: '10vh' }}>
+            <h1 style={{ fontSize: '' }}>
+              Meet Our Users
             </h1>
           </Grid>
           <Grid item xs={0} md={3} />
-        </Grid> */}
+
+          <div>
+          <Grid item xs={5} style={{ display: 'flex', justifyContent: 'center', marginTop: '', marginBottom: '6%' }}>
+            <img src={Woman} alt="woman" style={{ width: '', height: '300px', borderRadius: '25px' }}/>
+          </Grid>
+          <Grid item xs={7} style={{ textAlign: 'left', color: '#FFF', maxWidth: '500px', marginTop: '', marginBottom: '6%' }}>
+            Sonya is an artist based in Barcelona, Spain who uses her Convergent profile to sell her small pieces of art. She 
+            has investors from all around the world who has joined her economy and talk to each other in her exclusive zone
+            where she shares content for her fans.
+          </Grid>
+          </div>
+
+        </Grid>
+
+        <Grid container style={{ alignItems: 'center', background: '#05021A', minHeight: '50vh', paddingTop: '3%', paddingBottom: '15vh' }}>
+          <Grid item xs={0} md={3} />
+          <Grid item xs={12} md={6} style={{ textAlign: 'center', color: '#FFFFFF', marginBottom: '10vh' }}>
+            <h1 style={{ fontSize: '' }}>
+              Your Content, Your Way
+            </h1>
+          </Grid>
+          <Grid item xs={0} md={3} />
+          <Grid item xs={12} md={4} style={{ textAlign: 'center', color: '#FFFFFF', marginTop: '6%', marginBottom: '6%' }}>
+            <FontAwesomeIcon icon={faEthereum} size="6x"/>
+            <h3>Permissionless</h3>
+            <p style={{ padding: '3% 15% 0'}}>
+              Your account runs on the permissionless Ethereum blockchain.
+              This means that no one will ever be able to take down your content or shut off your account.
+            </p>
+          </Grid>
+
+          <Grid item xs={12} md={4} style={{ textAlign: 'center', color: '#FFFFFF', marginTop: '6%', marginBottom: '6%' }}>
+            <FontAwesomeIcon icon={faUserFriends} size="6x"/>
+            <h3>Connected</h3>
+            <p style={{ padding: '3% 15% 0'}}>
+              You can share some content to the public to attract investors but you also share
+              your exclusive content to only people who support you and your work.
+            </p>
+          </Grid>
+
+          <Grid item xs={12} md={4} style={{ textAlign: 'center', color: '#FFFFFF', marginTop: '6%', marginBottom: '6%' }}>
+            <FontAwesomeIcon icon={faPaintBrush} size="6x"/>
+            <h3>Creative</h3>
+            <p style={{ padding: '3% 15% 0'}}>
+              Something something something
+            </p>
+          </Grid>
+          
+          <div style={{ display: 'flex', width: '100%', justifyContent: 'center'}}>
+            <AltOutlineButton onClick={() => window.open('')}>
+              FAQ
+            </AltOutlineButton>
+          </div>
+        </Grid>
 
         {/* TEAM */}
-        <Grid container style={{ backgroundColor: '#05021A', minHeight: '80vh', paddingTop: '6%', paddingBottom: '8%' }}>
+        <Grid container style={{ background: 'linear-gradient(#05021A, #2424D0)', minHeight: '80vh', paddingTop: '6%', paddingBottom: '8%' }}>
           <Grid item xs={0} md={3} />
           <Grid item xs={12} md={6} style={{ textAlign: 'center', color: '#FFFFFF' }}>
             <h1 style={{ fontSize: '', marginBottom: '88px' }}>
