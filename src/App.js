@@ -22,7 +22,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDiscord, faGithub, faMediumM, faTwitter, faEthereum } from '@fortawesome/free-brands-svg-icons';
+import { faDiscord, faGithub, faMediumM, faTwitter, faEthereum, faMedium } from '@fortawesome/free-brands-svg-icons';
 import { faCoins, faChartLine, faHandshake, faPlay, faEnvelope, faUserFriends, faPaintBrush } from '@fortawesome/free-solid-svg-icons'
 
 // Pics
@@ -63,42 +63,150 @@ const Achill = {
   bio: 'Achill is amazed by life and the universe. He studied economics in combination with philosophy and loves making documentary films. After discovering that one can solve big problems for a living, he dropped out of a PhD program at Yale and decided to pursue his entrepreneurial mission: To enable more valuable communication between strangers. He started coding, leading teams and learning about technology - and never stopped. He is an active contributor to the global blockchain ecosystem and has not felt more at home in any other community ❤️',
   name: 'Achill Rudolph',
   picture: AchillPhoto,
+  role: 'Initiator and Lead Link',
   socials: {
     email: 'achill@convergent.cx',
     github: 'https://github.com/acrdlph',
     medium: 'https://medium.com/@w.a.y',
     twitter: 'https://twitter.com/AchillRudolph',
     website: 'http://www.achillrudolph.com/',
-  }
-}
+  },
+  who: 'achill',
+};
 
 const Logan = {
   bio: 'Logan is an entrepreneur, smart contract engineer, and decentralization activist. While a student of literature and complex systems at university, he discovered Ethereum while surfing online. He immediately found the emerging field of public blockchain technology to be the vortex of his varied interests. Realizing the potential for a high impact of change, he phased out his involvement with everything else and committed his time to studying cryptoeconomics and building DApps. After a brief stint with a startup in New York, he joined the ChronoLogic team and helped to reboot the Ethereum Alarm Clock project while travelling Europe. Now based in Berlin, he is one of the initiators of Convergent, a project which aims to realize the vision of unanimous personal economies. One day he will go to space ⚛🚀️',
   name: 'Logan Saether',
   picture: LoganPhoto,
+  role: 'Initiator and Lead Link',
   socials: {
     email: 'logan@convergent.cx',
     github: 'https://github.com/lsaether',
     medium: 'https://medium.com/@lsaether',
     twitter: 'https://twitter.com/7saether',
     website: 'https://logansaether.com',
-  }
-}
+  },
+  who: 'logan',
+};
 
-const team = {
+const Team = {
   'achill': Achill,
   'logan': Logan,
-}
+};
 
 const colors = {
   cvgBlue: '#2424D0',
   cvgPurp: '#411999',
   darkPurp: '#05021A',
+};
+
+const CvgSocials = {
+  twitter: {
+    icon: faTwitter,
+    link: 'https://twitter.com/ConvergentCx',
+  },
+  medium: {
+    icon: faMedium,
+    link: 'https://medium.com/convergentcx',
+  },
+  github: {
+    icon: faGithub,
+    link: 'https://github.com/convergentcx',
+  },
+  discord: {
+    icon: faDiscord,
+    link: 'https://discord.gg/JUPx5Xg',
+  },
+  email: {
+    icon: faEnvelope,
+    link: 'mailto:logan@convergent.cx',
+  },
+};
+
+const HowItWorks = {
+  one: {
+    icon: faCoins,
+    title: 'Launch',
+    description: 'Launch your token and decide what content or services you will offer for it.',
+  },
+  two: {
+    icon: faChartLine,
+    title: 'Trade',
+    description: 'Contributors trade your token and determine the value of your promise -- while you raise funds.'
+  },
+  three: {
+    icon: faHandshake,
+    title: 'Transact',
+    description: 'Honor your token to build trust, attract contributors, and raise funds.',
+  },
+};
+
+const genRandomColor = () => {
+  const letters = "0123456789ABCDEF";
+  let color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[(Math.floor(Math.random() * 16))];
+  }
+  return color;
 }
 
-// const Section = styled(Grid)`
-//   minHeight: 80vh;
-// `;
+// A pane of the landing page
+const Section = styled.div`
+  background: ${props => props.bg};
+  min-height: 100vh;
+  padding: 5% 10% 0 10%;
+  color: #FFF;
+  font-size: 30px;
+  font-weight: 800;
+`;
+
+const SmallLogo = styled.img`
+  width: 30px;
+  height: 30px;
+`;
+
+const SocialBar = styled.div`
+  width: 24%;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const NavSocialIcon = styled(FontAwesomeIcon)`
+  cursor: pointer;
+  :hover {
+    color: ${colors.cvgBlue};
+  }
+`;
+
+const Headline = styled.h1`
+  text-shadow: 2px 2px 4px black; 
+  @media only screen and (max-device-width: 600px) {
+    font-size: 3rem;
+  }
+  font-size: 5rem;
+  padding-top: 8%;
+`;
+
+const SubHeadline = styled.h4`
+  text-shadow: 2px 2px 4px black;
+  font-size: 1.5rem;
+`;
+
+const ButtonContainer = styled.div`
+  margin-top: 8%;
+`;
+
+const PrimaryButton = styled.button`
+  cursor: pointer;
+  background: #2424D0;
+  color: #FFF;
+  padding: 25px 40px;
+  border: 0;
+  transition: 0.3s;
+  :hover {
+    background: #0044FF;
+  }
+`;
 
 const MyButton = styled.button`
   cursor: pointer;
@@ -122,7 +230,7 @@ const OutlineButton = styled.button`
   color: #fff;
   transition: 0.3s;
   :hover {
-    background: ${colors.cvgPurp};
+    background: ${colors.darkPurp};
     border-color: #333;
   }
 `;
@@ -141,6 +249,16 @@ const AltOutlineButton = styled.button`
   }
 `;
 
+const TeamPhoto = styled.img`
+  border-radius: 10px;
+  width: 180px;
+  transition: 0.3s;
+  cursor: pointer;
+  :hover {
+    opacity: 0.4;
+  }
+`;
+
 const Avi = styled.img`
   border-radius: 10px;
   width: 180px;
@@ -152,14 +270,9 @@ const Avi = styled.img`
   }
 `;
 
-const Headline = styled.h1`
-  text-shadow: 2px 2px 4px black; 
-  @media only screen and (max-device-width: 600px) {
-    font-size: 3rem;
-  }
-  font-size: 5rem;
-  padding-top: 5%;
-`
+const openDemoVideo = () => window.open('https://www.youtube.com/watch?v=BXLjMA-BZYA');
+const openDemoSite= () => window.open('https://proto.convergent.cx');
+const openDeck = () => window.open('https://docs.google.com/presentation/d/e/2PACX-1vQElI7gdx9HQtboMEd-L3yBTZ0Sfez3z-TuDZAx9LEHU_rQzwv0HM6PQcKhVIrOTmnh0CPKyBQNHMsY/pub?start=false&loop=false&slide=id.p');
 
 class App extends Component {
   constructor(props) {
@@ -183,7 +296,39 @@ class App extends Component {
 
 
   render() {
-    const subject = team[this.state.who] || { bio: '', name: '', socials: { twitter: '', medium: '', github: '' } };
+    const subject = Team[this.state.who] || { bio: '', name: '', socials: { twitter: '', medium: '', github: '' } };
+
+    const socialIcons = Object.keys(CvgSocials).map((key) => {
+      return <NavSocialIcon icon={CvgSocials[key].icon} onClick={() => window.open(CvgSocials[key].link)}/>
+    });
+
+    const howItWorks = Object.keys(HowItWorks).map((key) => {
+      return (
+        <div style={{ width: '33.3%' }}>
+          <FontAwesomeIcon icon={HowItWorks[key].icon} size="3x"/>
+          <h5>
+            {HowItWorks[key].title}
+          </h5>
+          <p style={{ fontSize: '0.8rem', padding: '0 20% 0 0' }}>
+            {HowItWorks[key].description}
+          </p>
+        </div>
+      );
+    });
+
+    const theTeam = Object.keys(Team).map((key) => {
+      return (
+        <div>
+          <TeamPhoto src={Team[key].picture}/>
+          <h5 style={{ marginTop: '-0.1%', fontSize: '1rem' }}>
+            {Team[key].name}
+          </h5>
+          <p style={{ color: '#AAA', fontSize: '0.8rem', marginTop: '-2%' }}>
+            {Team[key].role}
+          </p>
+        </div>
+      );
+    });
 
     return (
       <div style={{ margin: 0, padding: 0, minWidth: "100%", minHeight: "100vh" }} onClick={e => {
@@ -196,105 +341,87 @@ class App extends Component {
       }}>
 
         {/* CONVERGENT */}
-        {/* <Grid container style={{ background: `url(${Artist}) no-repeat`, backgroundSize: '120%', backgroundPosition: '0 80%', minHeight: '80vh' }}> */}
-        <Grid container style={{ background: colors.darkPurp, backgroundSize: '120%', backgroundPosition: '0 80%', minHeight: '95vh' }}>
-
-          <Grid item xs={2} style={{ background: 'rgba(0,0,0,0.4)' }}/>
-          <Grid item xs={8} style={{ paddingTop: '12vh', textAlign: 'left', color: '#FFFFFF', minHeight: '50vh', paddingBottom: '50px', background: 'rgba(0,0,0,0.4)' }}>
-            <div style={{display: 'flex', alignItems: 'flex-start', height: '60px', justifyContent: 'space-between' }}>
-              <div>
-                <h1 style={{ fontSize: '1.85rem',  }}>
-                  <img src={LogoW} style={{ width: '30px', height: '30px'}}/>&nbsp; Convergent
-                </h1>
-              </div>
-              {/* <div>
-                <Button className="blueAlt" href="https://twitter.com/ConvergentCx" target="_blank" rel="noopener noreferrer">
-                  <FontAwesomeIcon className="blueAlt" icon={faTwitter} size='2x' />
-                </Button>
-                <Button className="blueAlt" href="https://medium.com/convergentcx" target="_blank" rel="noopener noreferrer">
-                  <FontAwesomeIcon className="blueAlt" icon={faMediumM} size='2x' />
-                </Button>
-                <Button className="blueAlt" href="https://github.com/convergentcx" target="_blank" rel="noopener noreferrer">
-                  <FontAwesomeIcon className="blueAlt" icon={faGithub} size='2x' />
-                </Button>
-                <Button className="blueAlt" href="https://discord.gg/JUPx5Xg" target="_blank" rel="noopener noreferrer">
-                  <FontAwesomeIcon className="blueAlt" icon={faDiscord} size='2x' />
-                </Button>
-                <Button className="blueAlt" href="mailto:logan@convergent.cx" target="_blank" rel="noopener noreferrer">
-                  <FontAwesomeIcon className="blueAlt" icon={faEnvelope} size='2x' />
-                </Button>
-              </div> */}
+        <Section bg={colors.cvgPurp}>
+          <div className="navbar" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <SmallLogo src={LogoW}/>
+              &nbsp;Convergent
             </div>
-            <br/>
-            <Headline>
-              Tokenize Your Work
-            </Headline>
-            <h4 style={{ color: 'white', marginTop: '-25px', fontSize: '1.5rem', textShadow: '2px 2px 4px black', }}>
-              Blockchain based fundraising for creators
-            </h4>
-            <h4 style={{ color: 'white', marginTop: '-25px', fontSize: '1.5rem', textShadow: '2px 2px 4px black', }}>
-              
-            </h4>
-            <div style={{ height: '50px' }}/>
-            <div style={{ display: 'flex', justifyContent: 'flex-start', marginTop: '7vh' }}>
-              <MyButton onClick={() => window.open('https://www.youtube.com/watch?v=BXLjMA-BZYA')}>
-                <FontAwesomeIcon icon={faPlay}/> Watch Demo Video
-              </MyButton>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <OutlineButton onClick={this.openPopup}>
-                Apply for Early Access
-              </OutlineButton>
-            </div>
-          </Grid>
-          <Grid item xs={2} style={{ background: 'rgba(0,0,0,0.4)' }}/>
-        </Grid>
+            <SocialBar>
+              {socialIcons}
+            </SocialBar>
+          </div>
+          <Headline>
+            Tokenize Your Work
+          </Headline>
+          <SubHeadline>
+            Blockchain based fundraising for creators
+          </SubHeadline>
+          <ButtonContainer>
+            <PrimaryButton onClick={openDemoVideo}>
+              <FontAwesomeIcon icon={faPlay}/>&nbsp;Watch Demo Video
+            </PrimaryButton>
+            &nbsp;&nbsp;
+            <OutlineButton onClick={this.openPopup}>
+              Apply for Early Access
+            </OutlineButton>
+          </ButtonContainer>
+        </Section>
 
         {/* How it Works */}
-        <Grid container style={{ background: '#2424D0', paddingTop: '6%', paddingBottom: '6%', minHeight: '100vh', alignItems: 'center' }}>
-          <Grid item xs={false} md={2} />
-          <Grid item xs={12} md={8} style={{ textAlign: 'left', color: '#FFFFFF' }}>
-            <h1>How it Works</h1>
-          </Grid>
-          <Grid item xs={false} md={2} />
-
-          <Grid item xs={false} md={2} />
-
-          <Grid item xs={12} md={3} style={{ textAlign: 'left', color: '#FFFFFF', marginTop: '6%', marginBottom: '6%' }}>
-            <FontAwesomeIcon icon={faCoins} size="6x"/>
-            <p style={{ padding: '3% 20% 0 0%'}}>
-              Launch your token and decide what content or services you'll offer for it.
-            </p>
-          </Grid>
-
-          <Grid item xs={12} md={3} style={{ textAlign: 'left', color: '#FFFFFF', marginTop: '6%', marginBottom: '6%' }}>
-            <FontAwesomeIcon icon={faChartLine} size="6x"/>
-            <p style={{ padding: '3% 20% 0 0'}}>
-              Contributors trade your token and determine the value of your promise -- while you raise funds.
-            </p>
-          </Grid>
-
-          <Grid item xs={12} md={3} style={{ textAlign: 'left', color: '#FFFFFF', marginTop: '6%', marginBottom: '6%' }}>
-            <FontAwesomeIcon icon={faHandshake} size="6x"/>
-            <p style={{ padding: '3% 20% 0 0'}}>
-              Honor your token to build trust, attract contributors, and raise capital.
-            </p>
-          </Grid>
-
-          <Grid item xs={false} md={2} />
-
-          <Grid item xs={12} md={8} style={{ textAlign: 'left' }}>
-            <OutlineButton onClick={() => window.open('https://proto.convergent.cx')}>
+        <Section bg={colors.cvgBlue}>
+          <SubHeadline>
+            How it Works
+          </SubHeadline>
+          <div style={{ display: 'flex', justifyContent: 'space-evenly', paddingTop: '8%' }}>
+            {howItWorks}
+          </div>
+          <ButtonContainer>
+            <OutlineButton onClick={openDemoSite}>
               Try our Testnet Demo
             </OutlineButton>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <OutlineButton onClick={() => window.open('https://docs.google.com/presentation/d/e/2PACX-1vQElI7gdx9HQtboMEd-L3yBTZ0Sfez3z-TuDZAx9LEHU_rQzwv0HM6PQcKhVIrOTmnh0CPKyBQNHMsY/pub?start=false&loop=false&slide=id.p')}>
-              Look at Slide Deck
+            &nbsp;&nbsp;
+            <OutlineButton onClick={openDeck}>
+              Check out the Deck
             </OutlineButton>
+          </ButtonContainer>
+        </Section>
+
+        {/* TEAM */}
+        <Section bg={colors.darkPurp}>
+          <SubHeadline>
+            The Team
+          </SubHeadline>
+          <div style={{ display: 'flex', flexFlow: 'row wrap' }}>
+            {theTeam}
+          </div>
+        </Section>
+
+        {/* <Grid container style={{ background: colors.darkPurp, minHeight: '80vh', paddingTop: '6%', paddingBottom: '16%' }}>
+          <Grid item xs={false} md={2} />
+          <Grid item xs={12} md={8} style={{ textAlign: 'left', color: '#FFFFFF' }}>
+            <h1 style={{ fontSize: '', marginBottom: '88px' }}>
+              The Team
+            </h1>
           </Grid>
-        </Grid>
+          <Grid item xs={false} md={2} />
 
-        <Grid item xs={false} md={2} />
+          <Grid item xs={false} md={2} />
 
+          <Grid item xs={12} md={2} style={{ color: '#FFF', textAlign: 'center' }}>
+            <Avi src={Logan.picture} onClick={()=> this.setState({ open: true, who: 'logan' })}/>
+            <h4>Logan Saether</h4>
+            <h5 style={{ color: 'grey', marginTop: '-16px' }}>Initiator and Lead Link</h5>
+          </Grid>
+
+          <Grid item xs={12} md={2} style={{ color: '#FFF', textAlign: 'center' }}>
+            <Avi src={Achill.picture} onClick={() => this.setState({ open: true, who: 'achill' })}/>
+            <h4>Achill Rudolph</h4>
+            <h5 style={{ color: 'grey', marginTop: '-16px' }}>Initiator and Lead Link</h5>
+          </Grid>
+
+          <Grid item xs={false} md={6} />
+        </Grid> */}
 
         {/* PERMISSIONLESS */}
         {/* <Grid container style={{ alignItems: 'center', background: `url(${DJ})`, backgroundSize: 'cover', backgroundPosition: '0 100%', minHeight: '100vh', paddingTop: '', paddingBottom: '0', margin: '0', }}>
@@ -376,7 +503,7 @@ class App extends Component {
         </Grid> */}
 
         {/* TEAM */}
-        <Grid container style={{ background: colors.darkPurp, minHeight: '80vh', paddingTop: '6%', paddingBottom: '16%' }}>
+        {/* <Grid container style={{ background: colors.darkPurp, minHeight: '80vh', paddingTop: '6%', paddingBottom: '16%' }}>
           <Grid item xs={false} md={2} />
           <Grid item xs={12} md={8} style={{ textAlign: 'left', color: '#FFFFFF' }}>
             <h1 style={{ fontSize: '', marginBottom: '88px' }}>
@@ -400,7 +527,7 @@ class App extends Component {
           </Grid>
 
           <Grid item xs={false} md={6} />
-        </Grid>
+        </Grid> */}
 
         {/* Dialog */}
         <Dialog onClose={() => this.setState({ open: false })} open={this.state.open}>
@@ -445,9 +572,9 @@ class App extends Component {
           <Grid item xs={12}>
             <Paper position="static" square elevation={12} style={{ backgroundColor: '#000000', height: '40vh', display: 'flex', alignItems: '' }}>
               <Grid container style={{ paddingLeft: '2%', paddingRight: '2%', paddingTop: '', background: '', height: '100%', display: 'flex', alignItems: 'flex-end' }}>
-                <Grid item xs={false} md={2} />
+                <Grid item xs={2} md={2} />
 
-                <Grid item xs={12} md={8} style={{ display: 'flex', alignItems: 'flex-end', justifyContent: '', background: '', paddingBottom: '1%' }}>
+                <Grid item xs={10} md={8} style={{ display: 'flex', alignItems: 'flex-end', justifyContent: '', background: '', paddingBottom: '1%' }}>
                   <Button className="blueAlt" href="https://twitter.com/ConvergentCx" target="_blank" rel="noopener noreferrer">
                     <FontAwesomeIcon className="blueAlt" icon={faTwitter} size='2x' />
                   </Button>
@@ -466,10 +593,10 @@ class App extends Component {
                 </Grid>
                 <Grid item xs={false} md={2} />
 
-                <Grid item xs={false} md={2} />
-                <Grid item xs={12} md={8} style={{ paddingBottom: '2%' }}>
-                  <div style={{ color: '#FFF', display: 'flex', justifyContent: 'flex-start' }}>
-                    Contribute: &nbsp;
+                <Grid item xs={2} md={2} />
+                <Grid item xs={10} md={8} style={{ paddingBottom: '2%' }}>
+                  <div style={{ color: '#FFF', display: 'flex', fontSize: '0.8rem', justifyContent: 'flex-start', flexFlow: 'column wrap' }}>
+                    <p>Contribute:</p>
                     <ContribLink href="https://beta.etherscan.io/address/0xb8001be99e38be45fa9caa4a6353ca75063b4e4c" target="_blank" rel="noopener noreferrer">
                       0xB8001be99e38BE45fa9Caa4A6353Ca75063b4e4c
                     </ContribLink>
@@ -494,6 +621,7 @@ class App extends Component {
 const ContribLink = styled.a`
   text-decoration: none;
   color: #2424D0;
+  font-size: 0.7rem;
   :hover {
     color: #411999;
   }
