@@ -4,7 +4,6 @@ import * as typeformEmbed from '@typeform/embed';
 import styled from 'styled-components';
 
 import {
-  AppBar,
   Button,
   Dialog,
   DialogActions,
@@ -13,27 +12,21 @@ import {
   DialogTitle,
   Grid,
   Paper,
-  Typography,
 } from '@material-ui/core';
 
 
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDiscord, faGithub, faMediumM, faTwitter, faEthereum, faMedium } from '@fortawesome/free-brands-svg-icons';
-import { faCoins, faChartLine, faHandshake, faPlay, faEnvelope, faUserFriends, faPaintBrush } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDiscord, faGithub, faMediumM, faTwitter, faMedium } from '@fortawesome/free-brands-svg-icons';
+import { faCoins, faChartLine, faHandshake, faPlay, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 // Pics
-import LogoW from './logo-white-plain.png';
-import LoganPhoto from './Logan-Saether.jpg';
-import AchillPhoto from './achill_16x9.jpg';
-// import Artist from './artist.jpg';
-// import DJ from './dj.jpg';
-// import Photographer from './photographer.jpg';
-// import Spraypaint from './spraypaint.jpg';
-// import Woman from './woman.jpg';
+import LogoW from './assets/logo-white-plain.png';
+import LoganPhoto from './assets/Logan-Saether.jpg';
+import AchillPhoto from './assets/achill_16x9.jpg';
 
 import './app.css'
 
@@ -52,12 +45,12 @@ const printConvergentToConsole = () => {
                                                        #####                                                        `)
 };
 
-const notification = () => {
-  toast(<div>Billboard now live at <a style={{ color: '#0044FF', textDecoration: 'none' }} href="https://billboard.convergent.cx" target="_blank" rel="noopener noreferrer">billboard.convergent.cx</a></div>, {
-    className: 'purp',
-    position: toast.POSITION.BOTTOM_LEFT,
-  });
-};
+// const notification = () => {
+//   toast(<div>Billboard now live at <a style={{ color: '#0044FF', textDecoration: 'none' }} href="https://billboard.convergent.cx" target="_blank" rel="noopener noreferrer">billboard.convergent.cx</a></div>, {
+//     className: 'purp',
+//     position: toast.POSITION.BOTTOM_LEFT,
+//   });
+// };
 
 const Achill = {
   bio: 'Achill is amazed by life and the universe. He studied economics in combination with philosophy and loves making documentary films. After discovering that one can solve big problems for a living, he dropped out of a PhD program at Yale and decided to pursue his entrepreneurial mission: To enable more valuable communication between strangers. He started coding, leading teams and learning about technology - and never stopped. He is an active contributor to the global blockchain ecosystem and has not felt more at home in any other community ❤️',
@@ -98,6 +91,7 @@ const colors = {
   cvgBlue: '#2424D0',
   cvgPurp: '#411999',
   darkPurp: '#05021A',
+  lightBlue: '#0044FF',
 };
 
 const CvgSocials = {
@@ -174,7 +168,7 @@ const SocialBar = styled.div`
 const NavSocialIcon = styled(FontAwesomeIcon)`
   cursor: pointer;
   :hover {
-    color: ${colors.cvgBlue};
+    color: ${colors.lightBlue};
   }
 `;
 
