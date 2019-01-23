@@ -3,12 +3,6 @@ import ReactGA from 'react-ga';
 import * as typeformEmbed from '@typeform/embed';
 import styled from 'styled-components';
 
-import {
-  Button,
-  Grid,
-  Paper,
-} from '@material-ui/core';
-
 import Modal from './components/Modal';
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -16,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDiscord, faGithub, faMediumM, faTwitter, faMedium } from '@fortawesome/free-brands-svg-icons';
+import { faDiscord, faGithub, faTwitter, faMedium } from '@fortawesome/free-brands-svg-icons';
 import { faCoins, faChartLine, faHandshake, faPlay, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 // Pics
@@ -158,11 +152,21 @@ const Footer = styled.div`
   color: #FFF;
   font-size: 30px;
   font-weight: 800;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+`;
+
+// The only difference between this and SocialBar is width.
+const FooterSocialBar = styled.div`
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const SmallLogo = styled.img`
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
 `;
 
 const SocialBar = styled.div`
@@ -273,6 +277,13 @@ const openDemoSite= () => window.open('https://proto.convergent.cx');
 const openDeck = () => window.open('https://docs.google.com/presentation/d/e/2PACX-1vQElI7gdx9HQtboMEd-L3yBTZ0Sfez3z-TuDZAx9LEHU_rQzwv0HM6PQcKhVIrOTmnh0CPKyBQNHMsY/pub?start=false&loop=false&slide=id.p');
 const openEthNews = () => window.open('https://www.ethnews.com/lets-get-curvy-an-erc-for-bonded-fungible-tokens');
 
+const Convergent = () => (
+  <div style={{ display: 'flex', alignItems: 'center' }}>
+    <SmallLogo src={LogoW}/>
+    &nbsp;Convergent
+  </div>
+)
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -342,10 +353,7 @@ class App extends Component {
         {/* CONVERGENT */}
         <Section bg={colors.cvgPurp}>
           <div className="navbar" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <SmallLogo src={LogoW}/>
-              &nbsp;Convergent
-            </div>
+            <Convergent/>
             <SocialBar>
               {socialIcons}
             </SocialBar>
@@ -602,50 +610,33 @@ class App extends Component {
 
         {/* Footer */}
         <Footer>
+          <div style={{ display: 'flex', width: '40%', flexDirection: 'column', justifyContent: 'space-around', background: '', height: '54vh' }}>
+            <Convergent/>
+            <FooterSocialBar>
+              {socialIcons}
+            </FooterSocialBar>
+          </div>
+          {/* <div style={{ display: 'flex', width: '60%', flexDirection: 'row', justifyContent: 'space-between', background: '', height: '54vh' }}>
+            <div style={{ display: 'flex', width: '33.33%', flexDirection: 'column', justifyContent: 'space-around', background: genRandomColor(), height: '100%', textAlign: 'center' }}>
+              <h5>Section Title</h5>
+              <ul>
+                <li>Item</li>
+                <li>Item</li>
+                <li>Item</li>
 
+              </ul>
+            </div>
+            <div style={{ display: 'flex', width: '33.33%', flexDirection: 'column', justifyContent: 'space-around', background: genRandomColor(), height: '100%'}}></div>
+            <div style={{ display: 'flex', width: '33.33%', flexDirection: 'column', justifyContent: 'space-around', background: genRandomColor(), height: '100%'}}></div>
+          </div> */}
+          <div style={{ position: 'absolute', bottom: '0', left: '10%', display: 'flex', flexFlow: 'row wrap'}}>
+            <p style={{ padding: 0, margin: 0, fontSize: '16px' }}>Contribute:</p>
+            &nbsp;
+            <ContribLink href="https://beta.etherscan.io/address/0xb8001be99e38be45fa9caa4a6353ca75063b4e4c" target="_blank" rel="noopener noreferrer">
+              0xB8001be99e38BE45fa9Caa4A6353Ca75063b4e4c
+            </ContribLink>
+          </div>
         </Footer>
-        <Grid container style={{ bottom: 0, backgroundColor: '#FFFFFF' }}>
-          <Grid item xs={12}>
-            <Paper position="static" square elevation={12} style={{ backgroundColor: '#000000', height: '40vh', display: 'flex', alignItems: '' }}>
-              <Grid container style={{ paddingLeft: '2%', paddingRight: '2%', paddingTop: '', background: '', height: '100%', display: 'flex', alignItems: 'flex-end' }}>
-                <Grid item xs={2} md={2} />
-
-                <Grid item xs={10} md={8} style={{ display: 'flex', alignItems: 'flex-end', justifyContent: '', background: '', paddingBottom: '1%' }}>
-                  <Button className="blueAlt" href="https://twitter.com/ConvergentCx" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon className="blueAlt" icon={faTwitter} size='2x' />
-                  </Button>
-                  <Button className="blueAlt" href="https://medium.com/convergentcx" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon className="blueAlt" icon={faMediumM} size='2x' />
-                  </Button>
-                  <Button className="blueAlt" href="https://github.com/convergentcx" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon className="blueAlt" icon={faGithub} size='2x' />
-                  </Button>
-                  <Button className="blueAlt" href="https://discord.gg/JUPx5Xg" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon className="blueAlt" icon={faDiscord} size='2x' />
-                  </Button>
-                  <Button className="blueAlt" href="mailto:logan@convergent.cx" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon className="blueAlt" icon={faEnvelope} size='2x' />
-                  </Button>
-                </Grid>
-                <Grid item xs={false} md={2} />
-
-                <Grid item xs={2} md={2} />
-                <Grid item xs={10} md={8} style={{ paddingBottom: '2%' }}>
-                  <div style={{ color: '#FFF', display: 'flex', fontSize: '0.8rem', justifyContent: 'flex-start', flexFlow: 'column wrap' }}>
-                    <p>Contribute:</p>
-                    <ContribLink href="https://beta.etherscan.io/address/0xb8001be99e38be45fa9caa4a6353ca75063b4e4c" target="_blank" rel="noopener noreferrer">
-                      0xB8001be99e38BE45fa9Caa4A6353Ca75063b4e4c
-                    </ContribLink>
-                  </div>
-                </Grid>
-
-              </Grid>
-            </Paper>
-          </Grid>
-          
-          
-
-        </Grid>
 
         {/* Toast */}
         <ToastContainer closeOnClick={false} autoClose={false} />
@@ -657,9 +648,9 @@ class App extends Component {
 const ContribLink = styled.a`
   text-decoration: none;
   color: #2424D0;
-  font-size: 0.7rem;
+  font-size: 16px;
   :hover {
-    color: #411999;
+    color: #0044FF;
   }
 `;
 
