@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import Modal from './components/Modal';
 
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -126,14 +126,14 @@ const HowItWorks = {
   },
 };
 
-const genRandomColor = () => {
-  const letters = "0123456789ABCDEF";
-  let color = '#';
-  for (var i = 0; i < 6; i++) {
-    color += letters[(Math.floor(Math.random() * 16))];
-  }
-  return color;
-}
+// const genRandomColor = () => {
+//   const letters = "0123456789ABCDEF";
+//   let color = '#';
+//   for (var i = 0; i < 6; i++) {
+//     color += letters[(Math.floor(Math.random() * 16))];
+//   }
+//   return color;
+// }
 
 // A pane of the landing page
 const Section = styled.div`
@@ -212,18 +212,6 @@ const PrimaryButton = styled.button`
   }
 `;
 
-const MyButton = styled.button`
-  cursor: pointer;
-  background: #2424D0;
-  color: #FFF;
-  padding: 25px 40px;
-  border: 0;
-  transition: 0.3s;
-  :hover {
-    background: #0044FF;
-  }
-`;
-
 const OutlineButton = styled.button`
   cursor: pointer;
   background: rgba(0,0,0,0.5);
@@ -239,19 +227,19 @@ const OutlineButton = styled.button`
   }
 `;
 
-const AltOutlineButton = styled.button`
-  cursor: pointer;
-  background: transparent;
-  border-color: #FFF;
-  border-style: solid;
-  border-width: 0.8px;
-  padding: 25px 40px;
-  color: #fff;
-  transition: 0.3s;
-  :hover {
-    background: #2424D0;
-  }
-`;
+// const AltOutlineButton = styled.button`
+//   cursor: pointer;
+//   background: transparent;
+//   border-color: #FFF;
+//   border-style: solid;
+//   border-width: 0.8px;
+//   padding: 25px 40px;
+//   color: #fff;
+//   transition: 0.3s;
+//   :hover {
+//     background: #2424D0;
+//   }
+// `;
 
 const TeamPhoto = styled.img`
   border-radius: 10px;
@@ -308,13 +296,13 @@ class App extends Component {
   render() {
     const subject = Team[this.state.who] || { bio: '', name: '', socials: { twitter: '', medium: '', github: '' } };
 
-    const socialIcons = Object.keys(CvgSocials).map((key) => {
-      return <NavSocialIcon icon={CvgSocials[key].icon} onClick={() => window.open(CvgSocials[key].link)}/>
+    const socialIcons = Object.keys(CvgSocials).map((key, idx) => {
+      return <NavSocialIcon icon={CvgSocials[key].icon} onClick={() => window.open(CvgSocials[key].link)} key={idx}/>
     });
 
-    const howItWorks = Object.keys(HowItWorks).map((key) => {
+    const howItWorks = Object.keys(HowItWorks).map((key, idx) => {
       return (
-        <div style={{ width: '33.3%' }}>
+        <div style={{ width: '33.3%' }} key={idx}>
           <FontAwesomeIcon icon={HowItWorks[key].icon} size="3x"/>
           <h5>
             {HowItWorks[key].title}
@@ -326,9 +314,9 @@ class App extends Component {
       );
     });
 
-    const theTeam = Object.keys(Team).map((key) => {
+    const theTeam = Object.keys(Team).map((key, idx) => {
       return (
-        <div style={{ display: 'flex', flexDirection: 'column', width: '20%' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', width: '20%' }} key={idx}>
           <TeamPhoto src={Team[key].picture} onClick={() => this.setState({ open: true, who: Team[key].who })} />
           <h5 style={{ margin: '0', marginTop: '8px', fontSize: '1rem' }}>
             {Team[key].name}
