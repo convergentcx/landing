@@ -5,18 +5,14 @@ import styled from 'styled-components';
 
 import {
   Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
   Grid,
   Paper,
 } from '@material-ui/core';
 
+import Modal from './components/Modal';
 
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -27,6 +23,7 @@ import { faCoins, faChartLine, faHandshake, faPlay, faEnvelope } from '@fortawes
 import LogoW from './assets/logo-white-plain.png';
 import LoganPhoto from './assets/Logan-Saether.jpg';
 import AchillPhoto from './assets/achill_16x9.jpg';
+import ETHNews from './assets/ETHNews-Logo.png';
 
 import './app.css'
 
@@ -76,7 +73,7 @@ const Logan = {
     email: 'logan@convergent.cx',
     github: 'https://github.com/lsaether',
     medium: 'https://medium.com/@lsaether',
-    twitter: 'https://twitter.com/7saether',
+    twitter: 'https://twitter.com/logansaether',
     website: 'https://logansaether.com',
   },
   who: 'logan',
@@ -147,7 +144,16 @@ const genRandomColor = () => {
 // A pane of the landing page
 const Section = styled.div`
   background: ${props => props.bg};
-  min-height: 100vh;
+  min-height: ${props => props.halfSize ? '50vh' : '100vh'};
+  padding: 5% 10% 0 10%;
+  color: #FFF;
+  font-size: 30px;
+  font-weight: 800;
+`;
+
+const Footer = styled.div`
+  background: #000;
+  min-height: 60vh;
   padding: 5% 10% 0 10%;
   color: #FFF;
   font-size: 30px;
@@ -253,20 +259,19 @@ const TeamPhoto = styled.img`
   }
 `;
 
-const Avi = styled.img`
-  border-radius: 10px;
-  width: 180px;
+const PressImage = styled.img`
+  width: 20%;
+  cursor: pointer;
   transition: 0.3s;
   :hover {
-    cursor: pointer;
-    color: white;
-    opacity: 0.5;
+    opacity: 0.4;
   }
 `;
 
 const openDemoVideo = () => window.open('https://www.youtube.com/watch?v=BXLjMA-BZYA');
 const openDemoSite= () => window.open('https://proto.convergent.cx');
 const openDeck = () => window.open('https://docs.google.com/presentation/d/e/2PACX-1vQElI7gdx9HQtboMEd-L3yBTZ0Sfez3z-TuDZAx9LEHU_rQzwv0HM6PQcKhVIrOTmnh0CPKyBQNHMsY/pub?start=false&loop=false&slide=id.p');
+const openEthNews = () => window.open('https://www.ethnews.com/lets-get-curvy-an-erc-for-bonded-fungible-tokens');
 
 class App extends Component {
   constructor(props) {
@@ -312,12 +317,12 @@ class App extends Component {
 
     const theTeam = Object.keys(Team).map((key) => {
       return (
-        <div>
-          <TeamPhoto src={Team[key].picture}/>
-          <h5 style={{ marginTop: '-0.1%', fontSize: '1rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', width: '20%' }}>
+          <TeamPhoto src={Team[key].picture} onClick={() => this.setState({ open: true, who: Team[key].who })} />
+          <h5 style={{ margin: '0', marginTop: '8px', fontSize: '1rem' }}>
             {Team[key].name}
           </h5>
-          <p style={{ color: '#AAA', fontSize: '0.8rem', marginTop: '-2%' }}>
+          <p style={{ color: '#AAA', fontSize: '0.8rem', marginTop: '0' }}>
             {Team[key].role}
           </p>
         </div>
@@ -382,7 +387,7 @@ class App extends Component {
         </Section>
 
         {/* TEAM */}
-        <Section bg={colors.darkPurp}>
+        <Section bg={colors.darkPurp} halfSize>
           <SubHeadline>
             The Team
           </SubHeadline>
@@ -390,6 +395,40 @@ class App extends Component {
             {theTeam}
           </div>
         </Section>
+
+        <Modal show={this.state.open} closeModal={() => this.setState({ open: false, who: null })}>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <h2>
+              {subject.name}
+            </h2>
+            <p>
+              {subject.bio}
+            </p>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <div/>
+              <div style={{ width: '16%', display: 'flex', justifyContent: 'space-between' }}>
+                <NavSocialIcon icon={faTwitter} onClick={() => window.open(subject.socials.twitter)}/>
+                <NavSocialIcon icon={faMedium} onClick={() => window.open(subject.socials.medium)}/>
+                <NavSocialIcon icon={faGithub} onClick={() => window.open(subject.socials.github)}/>
+              </div>
+            </div>
+          </div>
+        </Modal>
+
+        {/* PRESS */}
+        <Section bg={colors.darkPurp} halfSize>
+          <SubHeadline>
+            Press
+          </SubHeadline>
+          <PressImage src={ETHNews} onClick={openEthNews}/>
+        </Section>
+
+        {/* LEARN MORE */}
+        {/* <Section bg={colors.cvgPurp}>
+          <SubHeadline>
+            Learn More
+          </SubHeadline>
+        </Section> */}
 
         {/* <Grid container style={{ background: colors.darkPurp, minHeight: '80vh', paddingTop: '6%', paddingBottom: '16%' }}>
           <Grid item xs={false} md={2} />
@@ -524,7 +563,7 @@ class App extends Component {
         </Grid> */}
 
         {/* Dialog */}
-        <Dialog onClose={() => this.setState({ open: false })} open={this.state.open}>
+        {/* <Dialog onClose={() => this.setState({ open: false })} open={this.state.open}>
           <DialogTitle elevation={6} id="alert-dialog-title" style={{ backgroundColor: '' }}>
             {subject.name}
           </DialogTitle>
@@ -538,7 +577,7 @@ class App extends Component {
             <FontAwesomeIcon className="blue" icon={faMediumM} onClick={() => window.open(subject.socials.medium)} style={{ padding: '5px' }} />
             <FontAwesomeIcon className="blue" icon={faGithub} onClick={() => window.open(subject.socials.github)} style={{ padding: '5px' }} />
           </DialogActions>
-        </Dialog>
+        </Dialog> */}
 
         {/* LEARN MORE */}
         {/* <Grid container style={{ background: colors.darkPurp, minHeight: '50vh', paddingTop: '6%', paddingBottom: '8%' }}>
@@ -562,6 +601,9 @@ class App extends Component {
         </Grid> */}
 
         {/* Footer */}
+        <Footer>
+
+        </Footer>
         <Grid container style={{ bottom: 0, backgroundColor: '#FFFFFF' }}>
           <Grid item xs={12}>
             <Paper position="static" square elevation={12} style={{ backgroundColor: '#000000', height: '40vh', display: 'flex', alignItems: '' }}>
