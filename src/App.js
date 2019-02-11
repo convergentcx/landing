@@ -138,13 +138,14 @@ const HowItWorks = {
 // A pane of the landing page
 const Section = styled.div`
   background: ${props => props.bg};
+  
   min-height: ${props => props.halfSize ? '50vh' : '100vh'};
   padding: 5% 10% 0 10%;
   color: #FFF;
   font-size: 30px;
   font-weight: 800;
   @media (max-width: 480px) {
-    padding-bottom: 5%;
+    padding: 5% 5% 5% 5%;
   }
 `;
 
@@ -179,14 +180,12 @@ const TeamItem = styled.div`
 
 const Footer = styled.div`
   background: #000;
-  min-height: 60vh;
-  padding: 5% 10% 0 10%;
+  padding: 0 10% 2% 10%;
   color: #FFF;
   font-size: 30px;
   font-weight: 800;
   display: flex;
   flex-direction: column;
-  position: relative;
   justify-content: center;
 `;
 
@@ -194,7 +193,7 @@ const FooterMain = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 50vh;
+  min-height: 40vh;
   width: 100%;
   align-items: center;
 `;
@@ -220,9 +219,12 @@ const ContribLink = styled.a`
 
 // The only difference between this and SocialBar is width.
 const FooterSocialBar = styled.div`
-  width: 80%;
+  width: 40%;
   display: flex;
   justify-content: space-between;
+  @media (max-width: 480px) {
+    width: 80%;
+  }
 `;
 
 const SmallLogo = styled.img`
@@ -231,8 +233,9 @@ const SmallLogo = styled.img`
 `;
 
 const SocialBar = styled.div`
-  width: 40%;
+  width: 25%;
   display: flex;
+  font-size: 24px;
   justify-content: space-between;
   @media (max-width: 480px) {
     display: none;
@@ -288,6 +291,10 @@ const PrimaryButton = styled.button`
   padding: 25px 40px;
   transition: 0.3s;
   width: 225px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-color: #000;
   border-style: solid;
   border-width: 0.8px;
@@ -303,7 +310,11 @@ const OutlineButton = styled.button`
   border-style: solid;
   border-width: 0.8px;
   padding: 25px 40px;
+  font-size: 16px;
   color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: 0.3s;
   width: 225px;
   margin-left: 30px;
@@ -401,7 +412,7 @@ const PressImage = styled.img`
     opacity: 0.4;
   }
   @media (max-width: 480px) {
-    width: 100%;
+    width: 80%;
   }
 `;
 
@@ -507,6 +518,7 @@ class App extends Component {
             {socialIcons}
           </SocialBar>
         </NavBar>
+
         {/* CONVERGENT */}
         <Section bg={colors.cvgPurp}>
           <Headline>
