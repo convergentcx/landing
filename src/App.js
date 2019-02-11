@@ -231,7 +231,7 @@ const SmallLogo = styled.img`
 `;
 
 const SocialBar = styled.div`
-  width: 24%;
+  width: 40%;
   display: flex;
   justify-content: space-between;
   @media (max-width: 480px) {
@@ -253,7 +253,7 @@ const Headline = styled.h1`
     text-align: center;
   }
   font-size: 5rem;
-  padding-top: 8%;
+  padding-top: 15%;
 `;
 
 const SubHeadline = styled.h4`
@@ -276,6 +276,8 @@ const ButtonContainer = styled.div`
   @media (max-width: 480px) {
     flex-direction: column;
     align-items: center;
+    margin-top: 15%;
+    justify-content: center;
   }
 `;
 
@@ -284,9 +286,11 @@ const PrimaryButton = styled.button`
   background: #2424D0;
   color: #FFF;
   padding: 25px 40px;
-  border: 0;
   transition: 0.3s;
   width: 225px;
+  border-color: #000;
+  border-style: solid;
+  border-width: 0.8px;
   :hover {
     background: #0044FF;
   }
@@ -294,7 +298,7 @@ const PrimaryButton = styled.button`
 
 const OutlineButton = styled.button`
   cursor: pointer;
-  background: rgba(0,0,0,0.5);
+  background: #000;
   border-color: #FFF;
   border-style: solid;
   border-width: 0.8px;
@@ -302,9 +306,14 @@ const OutlineButton = styled.button`
   color: #fff;
   transition: 0.3s;
   width: 225px;
+  margin-left: 30px;
   :hover {
-    background: ${colors.darkPurp};
+    background: rgba(0,0,0,0.8);
     border-color: #333;
+  }
+  @media (max-width: 480px) {
+    margin-left: 0;
+    margin-top: 15px;
   }
 `;
 
@@ -315,6 +324,21 @@ const NavBar = styled.div`
   @media (max-width: 480px) {
     justify-content: center;
   }
+  background: transparent;
+  padding: 5% 10% 1% 10%;
+  position: absolute;
+  width: 80%;
+  color: #FFF;
+  font-size: 32px;
+  font-weight: 900;
+  ${props => props.sticky? `
+  position: fixed;
+  padding-top: 1%;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: black;
+  `: ''}
 `;
 
 const HowItWorksContainer = styled.div`
@@ -403,6 +427,7 @@ class App extends Component {
     this.state = {
       open: false,
       who: '',
+      sticky: false,
     };
   }
 
@@ -418,6 +443,20 @@ class App extends Component {
 
 
   render() {
+    // 115
+    window.onscroll = (ev) => {
+      if (ev.pageY > 113) {
+        this.setState({
+          sticky: true,
+        })
+        return;
+      }
+      if (ev.pageY <= 113) {
+        this.setState({ sticky: false,
+        });
+        return;
+      }
+    }
     const subject = Team[this.state.who] || { bio: '', name: '', socials: { twitter: '', medium: '', github: '' } };
 
     const socialIcons = Object.keys(CvgSocials).map((key, idx) => {
@@ -462,14 +501,14 @@ class App extends Component {
         } catch { }
       }}>
 
+        <NavBar sticky={this.state.sticky}>
+          <Convergent/>
+          <SocialBar>
+            {socialIcons}
+          </SocialBar>
+        </NavBar>
         {/* CONVERGENT */}
         <Section bg={colors.cvgPurp}>
-          <NavBar>
-            <Convergent/>
-            <SocialBar>
-              {socialIcons}
-            </SocialBar>
-          </NavBar>
           <Headline>
             Tokenize Your Work
           </Headline>
@@ -480,7 +519,6 @@ class App extends Component {
             <PrimaryButton onClick={locked}>
               <FontAwesomeIcon icon={faRocket}/>&nbsp; Try the Beta
             </PrimaryButton>
-            &nbsp;&nbsp;
             <OutlineButton onClick={openDeck}>
               <FontAwesomeIcon icon={faFilePowerpoint}/>&nbsp; View the Deck
             </OutlineButton>
