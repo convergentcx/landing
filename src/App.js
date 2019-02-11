@@ -456,13 +456,13 @@ class App extends Component {
   render() {
     // 115
     window.onscroll = (ev) => {
-      if (ev.pageY > 113) {
+      if (window.scrollY > 113) {
         this.setState({
           sticky: true,
         })
         return;
       }
-      if (ev.pageY <= 113) {
+      if (window.scrollY <= 113) {
         this.setState({ sticky: false,
         });
         return;
