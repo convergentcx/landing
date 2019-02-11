@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDiscord, faGithub, faTwitter, faMedium } from '@fortawesome/free-brands-svg-icons';
-import { faCoins, faChartLine, faHandshake, faPlay, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faCoins, faChartLine, faHandshake, faPlay, faEnvelope, faRocket } from '@fortawesome/free-solid-svg-icons';
 
 // Pics
 import LogoW from './assets/logo-white-plain.png';
@@ -177,13 +177,13 @@ const SocialBar = styled.div`
 
 const NavSocialIcon = styled(FontAwesomeIcon)`
   cursor: pointer;
+  transition: 0.2s;
   :hover {
     color: ${colors.lightBlue};
   }
 `;
 
 const Headline = styled.h1`
-  text-shadow: 2px 2px 4px black; 
   @media only screen and (max-device-width: 600px) {
     font-size: 3rem;
   }
@@ -192,8 +192,11 @@ const Headline = styled.h1`
 `;
 
 const SubHeadline = styled.h4`
-  text-shadow: 2px 2px 4px black;
-  font-size: 1.5rem;
+  font-size: 0.8em;
+`;
+
+const SectionHeader = styled.h4`
+  font-size: 1.2em;
 `;
 
 const ButtonContainer = styled.div`
@@ -207,6 +210,7 @@ const PrimaryButton = styled.button`
   padding: 25px 40px;
   border: 0;
   transition: 0.3s;
+  width: 225px;
   :hover {
     background: #0044FF;
   }
@@ -221,6 +225,7 @@ const OutlineButton = styled.button`
   padding: 25px 40px;
   color: #fff;
   transition: 0.3s;
+  width: 225px;
   :hover {
     background: ${colors.darkPurp};
     border-color: #333;
@@ -260,8 +265,9 @@ const PressImage = styled.img`
   }
 `;
 
-const openDemoVideo = () => window.open('https://www.youtube.com/watch?v=BXLjMA-BZYA');
-const openDemoSite= () => window.open('https://proto.convergent.cx');
+// const openDemoVideo = () => window.open('https://www.youtube.com/watch?v=BXLjMA-BZYA');
+// const openDemoSite= () => window.open('https://proto.convergent.cx');
+const openBeta = () => window.open('https://beta.convergent.cx');
 const openDeck = () => window.open('https://docs.google.com/presentation/d/e/2PACX-1vQElI7gdx9HQtboMEd-L3yBTZ0Sfez3z-TuDZAx9LEHU_rQzwv0HM6PQcKhVIrOTmnh0CPKyBQNHMsY/pub?start=false&loop=false&slide=id.p');
 const openEthNews = () => window.open('https://www.ethnews.com/lets-get-curvy-an-erc-for-bonded-fungible-tokens');
 
@@ -350,31 +356,12 @@ class App extends Component {
             Tokenize Your Work
           </Headline>
           <SubHeadline>
-            Blockchain based fundraising for creators
+            Ethereum based fundraising for creators
           </SubHeadline>
           <ButtonContainer>
-            <PrimaryButton onClick={openDemoVideo}>
-              <FontAwesomeIcon icon={faPlay}/>&nbsp;Watch Demo Video
+            <PrimaryButton onClick={openBeta}>
+              <FontAwesomeIcon icon={faRocket}/>&nbsp; Try the Beta
             </PrimaryButton>
-            &nbsp;&nbsp;
-            <OutlineButton onClick={this.openPopup}>
-              Apply for Early Access
-            </OutlineButton>
-          </ButtonContainer>
-        </Section>
-
-        {/* How it Works */}
-        <Section bg={colors.cvgBlue}>
-          <SubHeadline>
-            How it Works
-          </SubHeadline>
-          <div style={{ display: 'flex', justifyContent: 'space-evenly', paddingTop: '8%' }}>
-            {howItWorks}
-          </div>
-          <ButtonContainer>
-            <OutlineButton onClick={openDemoSite}>
-              Try our Testnet Demo
-            </OutlineButton>
             &nbsp;&nbsp;
             <OutlineButton onClick={openDeck}>
               Check out the Deck
@@ -382,13 +369,32 @@ class App extends Component {
           </ButtonContainer>
         </Section>
 
+        {/* How it Works */}
+        <Section bg={colors.cvgBlue}>
+          <SectionHeader>
+            How it Works
+          </SectionHeader>
+          <div style={{ display: 'flex', justifyContent: 'space-evenly', paddingTop: '8%' }}>
+            {howItWorks}
+          </div>
+          {/* <ButtonContainer>
+            <OutlineButton onClick={openDemoSite}>
+              Try our Testnet Demo
+            </OutlineButton>
+            &nbsp;&nbsp;
+            <OutlineButton onClick={openDeck}>
+              Check out the Deck
+            </OutlineButton>
+          </ButtonContainer> */}
+        </Section>
+
         {/* TEAM */}
         <Section bg={colors.darkPurp} halfSize>
-          <SubHeadline>
+          <SectionHeader>
             The Team
-          </SubHeadline>
-          <div style={{ display: 'flex', flexFlow: 'row wrap' }}>
-            {theTeam}
+          </SectionHeader>
+          <div style={{ display: 'flex', flexFlow: 'row wrap', paddingTop: '5%' }}>
+            {theTeam.reverse()}
           </div>
         </Section>
 
@@ -413,9 +419,9 @@ class App extends Component {
 
         {/* PRESS */}
         <Section bg={colors.darkPurp} halfSize>
-          <SubHeadline>
+          <SectionHeader>
             Press
-          </SubHeadline>
+          </SectionHeader>
           <PressImage src={ETHNews} onClick={openEthNews}/>
         </Section>
 
