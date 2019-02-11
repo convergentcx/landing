@@ -10,13 +10,13 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDiscord, faGithub, faTwitter, faMedium } from '@fortawesome/free-brands-svg-icons';
-import { faCoins, faChartLine, faHandshake, faPlay, faEnvelope, faRocket } from '@fortawesome/free-solid-svg-icons';
+import { faDiscord, faGithub, faTwitter, faMedium, faSlideshare } from '@fortawesome/free-brands-svg-icons';
+import { faCoins, faChartLine, faHandshake, faPlay, faEnvelope, faRocket, faFilePowerpoint } from '@fortawesome/free-solid-svg-icons';
 
 // Pics
 import LogoW from './assets/logo-white-plain.png';
-import LoganPhoto from './assets/Logan-Saether.jpg';
-import AchillPhoto from './assets/achill_16x9.jpg';
+import LoganPhoto from './assets/logan-sq.jpg';
+import AchillPhoto from './assets/achill.jpg';
 import ETHNews from './assets/ETHNews-Logo.png';
 
 import './app.css'
@@ -143,6 +143,38 @@ const Section = styled.div`
   color: #FFF;
   font-size: 30px;
   font-weight: 800;
+  @media (max-width: 480px) {
+    padding-bottom: 5%;
+  }
+`;
+
+// Inside contianer which is a flex box.
+const SectionContainer = styled.div`
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background: yellow;
+`;
+
+const TeamContainer = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  padding-top: 5%;
+  @media (max-width: 480px) {
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+const TeamItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 480px) {
+    margin-bottom: 50px;
+  }
 `;
 
 const Footer = styled.div`
@@ -173,6 +205,9 @@ const SocialBar = styled.div`
   width: 24%;
   display: flex;
   justify-content: space-between;
+  @media (max-width: 480px) {
+    display: none;
+  }
 `;
 
 const NavSocialIcon = styled(FontAwesomeIcon)`
@@ -184,8 +219,9 @@ const NavSocialIcon = styled(FontAwesomeIcon)`
 `;
 
 const Headline = styled.h1`
-  @media only screen and (max-device-width: 600px) {
-    font-size: 3rem;
+  @media (max-width: 480px) {
+    font-size: 2.3em;
+    text-align: center;
   }
   font-size: 5rem;
   padding-top: 8%;
@@ -193,14 +229,25 @@ const Headline = styled.h1`
 
 const SubHeadline = styled.h4`
   font-size: 0.8em;
+  @media (max-width: 480px) {
+    text-align: center;
+  }
 `;
 
 const SectionHeader = styled.h4`
   font-size: 1.2em;
+  @media (max-width: 480px) {
+    text-align: center;
+  }
 `;
 
 const ButtonContainer = styled.div`
   margin-top: 8%;
+  display: flex;
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const PrimaryButton = styled.button`
@@ -232,6 +279,34 @@ const OutlineButton = styled.button`
   }
 `;
 
+const NavBar = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @media (max-width: 480px) {
+    justify-content: center;
+  }
+`;
+
+const HowItWorksContainer = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  padding-top: 8%;
+`;
+
+const HowItWorksItem = styled.div`
+  width: 33.3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  @media (max-width: 480px) {
+    width: 100%;
+  }
+`;
+
 // const AltOutlineButton = styled.button`
 //   cursor: pointer;
 //   background: transparent;
@@ -256,12 +331,24 @@ const TeamPhoto = styled.img`
   }
 `;
 
+const PressContainer = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  @media (max-width: 480px) {
+    justify-content: center;
+  }
+`;
+
 const PressImage = styled.img`
-  width: 20%;
+  width: 25%;
   cursor: pointer;
   transition: 0.3s;
   :hover {
     opacity: 0.4;
+  }
+  @media (max-width: 480px) {
+    width: 100%;
   }
 `;
 
@@ -308,21 +395,21 @@ class App extends Component {
 
     const howItWorks = Object.keys(HowItWorks).map((key, idx) => {
       return (
-        <div style={{ width: '33.3%' }} key={idx}>
+        <HowItWorksItem key={idx}>
           <FontAwesomeIcon icon={HowItWorks[key].icon} size="3x"/>
-          <h5>
+          <h5 style={{ margin: 0, marginTop: '30px', marginBottom: '30px', padding: 0 }}>
             {HowItWorks[key].title}
           </h5>
-          <p style={{ fontSize: '0.8rem', padding: '0 20% 0 0' }}>
+          <p style={{ fontSize: '0.8rem', margin: 0, marginBottom: '50px', padding: '0 5% 0 5%' }}>
             {HowItWorks[key].description}
           </p>
-        </div>
+        </HowItWorksItem>
       );
     });
 
     const theTeam = Object.keys(Team).map((key, idx) => {
       return (
-        <div style={{ display: 'flex', flexDirection: 'column', width: '20%' }} key={idx}>
+        <TeamItem key={idx}>
           <TeamPhoto src={Team[key].picture} onClick={() => this.setState({ open: true, who: Team[key].who })} />
           <h5 style={{ margin: '0', marginTop: '8px', fontSize: '1rem' }}>
             {Team[key].name}
@@ -330,7 +417,7 @@ class App extends Component {
           <p style={{ color: '#AAA', fontSize: '0.8rem', marginTop: '0' }}>
             {Team[key].role}
           </p>
-        </div>
+        </TeamItem>
       );
     });
 
@@ -346,12 +433,12 @@ class App extends Component {
 
         {/* CONVERGENT */}
         <Section bg={colors.cvgPurp}>
-          <div className="navbar" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <NavBar>
             <Convergent/>
             <SocialBar>
               {socialIcons}
             </SocialBar>
-          </div>
+          </NavBar>
           <Headline>
             Tokenize Your Work
           </Headline>
@@ -364,7 +451,7 @@ class App extends Component {
             </PrimaryButton>
             &nbsp;&nbsp;
             <OutlineButton onClick={openDeck}>
-              Check out the Deck
+              <FontAwesomeIcon icon={faFilePowerpoint}/>&nbsp; View the Deck
             </OutlineButton>
           </ButtonContainer>
         </Section>
@@ -374,9 +461,9 @@ class App extends Component {
           <SectionHeader>
             How it Works
           </SectionHeader>
-          <div style={{ display: 'flex', justifyContent: 'space-evenly', paddingTop: '8%' }}>
+          <HowItWorksContainer>
             {howItWorks}
-          </div>
+          </HowItWorksContainer>
           {/* <ButtonContainer>
             <OutlineButton onClick={openDemoSite}>
               Try our Testnet Demo
@@ -393,9 +480,9 @@ class App extends Component {
           <SectionHeader>
             The Team
           </SectionHeader>
-          <div style={{ display: 'flex', flexFlow: 'row wrap', paddingTop: '5%' }}>
+          <TeamContainer>
             {theTeam.reverse()}
-          </div>
+          </TeamContainer>
         </Section>
 
         <Modal show={this.state.open} closeModal={() => this.setState({ open: false, who: null })}>
@@ -422,7 +509,9 @@ class App extends Component {
           <SectionHeader>
             Press
           </SectionHeader>
-          <PressImage src={ETHNews} onClick={openEthNews}/>
+          <PressContainer>
+            <PressImage src={ETHNews} onClick={openEthNews}/>
+          </PressContainer>
         </Section>
 
         {/* LEARN MORE */}
