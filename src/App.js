@@ -185,9 +185,38 @@ const Footer = styled.div`
   font-size: 30px;
   font-weight: 800;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   position: relative;
+  justify-content: center;
 `;
+
+const FooterMain = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 50vh;
+  width: 100%;
+  align-items: center;
+`;
+
+const ContributionBox = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  font-size: 16px;
+  @media (max-width: 480px) {
+    font-size: 11px;
+  }
+  `;
+
+const ContribLink = styled.a`
+  text-decoration: none;
+  color: #2424D0;
+  :hover {
+    color: #0044FF;
+  }
+`;
+
 
 // The only difference between this and SocialBar is width.
 const FooterSocialBar = styled.div`
@@ -214,7 +243,7 @@ const NavSocialIcon = styled(FontAwesomeIcon)`
   cursor: pointer;
   transition: 0.2s;
   :hover {
-    color: ${colors.lightBlue};
+    color: ${colors.cvgBlue};
   }
 `;
 
@@ -358,6 +387,8 @@ const openBeta = () => window.open('https://beta.convergent.cx');
 const openDeck = () => window.open('https://docs.google.com/presentation/d/e/2PACX-1vQElI7gdx9HQtboMEd-L3yBTZ0Sfez3z-TuDZAx9LEHU_rQzwv0HM6PQcKhVIrOTmnh0CPKyBQNHMsY/pub?start=false&loop=false&slide=id.p');
 const openEthNews = () => window.open('https://www.ethnews.com/lets-get-curvy-an-erc-for-bonded-fungible-tokens');
 
+const locked = () => alert('Check back on February 14th, 2019.');
+
 const Convergent = () => (
   <div style={{ display: 'flex', alignItems: 'center' }}>
     <SmallLogo src={LogoW}/>
@@ -446,7 +477,7 @@ class App extends Component {
             Ethereum based fundraising for creators
           </SubHeadline>
           <ButtonContainer>
-            <PrimaryButton onClick={openBeta}>
+            <PrimaryButton onClick={locked}>
               <FontAwesomeIcon icon={faRocket}/>&nbsp; Try the Beta
             </PrimaryButton>
             &nbsp;&nbsp;
@@ -693,12 +724,12 @@ class App extends Component {
 
         {/* Footer */}
         <Footer>
-          <div style={{ display: 'flex', width: '40%', flexDirection: 'column', justifyContent: 'space-around', background: '', height: '54vh' }}>
+          <FooterMain>
             <Convergent/>
             <FooterSocialBar>
               {socialIcons}
             </FooterSocialBar>
-          </div>
+          </FooterMain>
           {/* <div style={{ display: 'flex', width: '60%', flexDirection: 'row', justifyContent: 'space-between', background: '', height: '54vh' }}>
             <div style={{ display: 'flex', width: '33.33%', flexDirection: 'column', justifyContent: 'space-around', background: genRandomColor(), height: '100%', textAlign: 'center' }}>
               <h5>Section Title</h5>
@@ -712,13 +743,13 @@ class App extends Component {
             <div style={{ display: 'flex', width: '33.33%', flexDirection: 'column', justifyContent: 'space-around', background: genRandomColor(), height: '100%'}}></div>
             <div style={{ display: 'flex', width: '33.33%', flexDirection: 'column', justifyContent: 'space-around', background: genRandomColor(), height: '100%'}}></div>
           </div> */}
-          <div style={{ position: 'absolute', bottom: '0', left: '10%', display: 'flex', flexFlow: 'row wrap'}}>
-            <p style={{ padding: 0, margin: 0, fontSize: '16px' }}>Contribute:</p>
+          <ContributionBox>
+            <p style={{ padding: 0, margin: 0}}>Contribute:</p>
             &nbsp;
             <ContribLink href="https://beta.etherscan.io/address/0xb8001be99e38be45fa9caa4a6353ca75063b4e4c" target="_blank" rel="noopener noreferrer">
               0xB8001be99e38BE45fa9Caa4A6353Ca75063b4e4c
             </ContribLink>
-          </div>
+          </ContributionBox>
         </Footer>
 
         {/* Toast */}
@@ -727,14 +758,5 @@ class App extends Component {
     );
   }
 }
-
-const ContribLink = styled.a`
-  text-decoration: none;
-  color: #2424D0;
-  font-size: 16px;
-  :hover {
-    color: #0044FF;
-  }
-`;
 
 export default App;
