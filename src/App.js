@@ -10,8 +10,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDiscord, faGithub, faTwitter, faMedium, faSlideshare } from '@fortawesome/free-brands-svg-icons';
-import { faCoins, faChartLine, faHandshake, faPlay, faEnvelope, faRocket, faFilePowerpoint } from '@fortawesome/free-solid-svg-icons';
+import { faDiscord, faGithub, faTwitter, faMedium } from '@fortawesome/free-brands-svg-icons';
+import { faCoins, faChartLine, faHandshake, faEnvelope, faRocket, faFilePowerpoint } from '@fortawesome/free-solid-svg-icons';
 
 // Pics
 import LogoW from './assets/logo-white-plain.png';
@@ -150,12 +150,12 @@ const Section = styled.div`
 `;
 
 // Inside contianer which is a flex box.
-const SectionContainer = styled.div`
-  display: flex;
-  height: 100%;
-  width: 100%;
-  background: yellow;
-`;
+// const SectionContainer = styled.div`
+//   display: flex;
+//   height: 100%;
+//   width: 100%;
+//   background: yellow;
+// `;
 
 const TeamContainer = styled.div`
   display: flex;
@@ -418,7 +418,7 @@ const PressImage = styled.img`
 
 // const openDemoVideo = () => window.open('https://www.youtube.com/watch?v=BXLjMA-BZYA');
 // const openDemoSite= () => window.open('https://proto.convergent.cx');
-const openBeta = () => window.open('https://beta.convergent.cx');
+// const openBeta = () => window.open('https://beta.convergent.cx');
 const openDeck = () => window.open('https://docs.google.com/presentation/d/e/2PACX-1vQElI7gdx9HQtboMEd-L3yBTZ0Sfez3z-TuDZAx9LEHU_rQzwv0HM6PQcKhVIrOTmnh0CPKyBQNHMsY/pub?start=false&loop=false&slide=id.p');
 const openEthNews = () => window.open('https://www.ethnews.com/lets-get-curvy-an-erc-for-bonded-fungible-tokens');
 
