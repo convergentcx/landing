@@ -418,11 +418,11 @@ const PressImage = styled.img`
 
 // const openDemoVideo = () => window.open('https://www.youtube.com/watch?v=BXLjMA-BZYA');
 // const openDemoSite= () => window.open('https://proto.convergent.cx');
-// const openBeta = () => window.open('https://beta.convergent.cx');
+const openBeta = () => window.open('https://beta.convergent.cx');
 const openDeck = () => window.open('https://docs.google.com/presentation/d/e/2PACX-1vQElI7gdx9HQtboMEd-L3yBTZ0Sfez3z-TuDZAx9LEHU_rQzwv0HM6PQcKhVIrOTmnh0CPKyBQNHMsY/pub?start=false&loop=false&slide=id.p');
 const openEthNews = () => window.open('https://www.ethnews.com/lets-get-curvy-an-erc-for-bonded-fungible-tokens');
 
-const locked = () => alert('Check back on February 14th, 2019.');
+// const locked = () => alert('Check back on February 14th, 2019.');
 
 const Convergent = () => (
   <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -528,7 +528,7 @@ class App extends Component {
             Ethereum based fundraising for creators
           </SubHeadline>
           <ButtonContainer>
-            <PrimaryButton onClick={locked}>
+            <PrimaryButton onClick={openBeta}>
               <FontAwesomeIcon icon={faRocket}/>&nbsp; Try the Beta
             </PrimaryButton>
             <OutlineButton onClick={openDeck}>
